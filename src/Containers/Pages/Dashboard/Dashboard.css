@@ -1,0 +1,118 @@
+/* ============ Banner Cards ========== */
+
+
+
+
+.banner-card {
+    position: relative;
+    color: #Fff;
+    max-width: 541px;
+    height: 161px;
+    background: #12C4E0;
+    box-shadow: -11px 15px 39px rgba(0, 0, 0, 0.12);
+    border-radius: 15px;
+}
+
+.banner-style {
+    position: absolute;
+    right: 0;
+}
+
+.dashboard h1 {
+    font-size: 29px;
+}
+
+.dashboard p {
+    font-size: 20px;
+}
+
+
+/* ============ List Cards ========== */
+
+.list-cards {
+    height: 420px;
+    max-width: 541px;
+    background: #FFFFFF;
+    box-shadow: 5px 2px 43px rgba(0, 0, 0, 0.12);
+    border-radius: 15px;
+}
+.trash-circle{
+    height: 23px;
+    width: 23px;
+    background-color: #F80D0D;
+    border-radius: 50%;
+}
+
+.vendor-registered-list {
+    height: 305px;
+    overflow-y: scroll;
+}
+
+.vendor-registered-list::-webkit-scrollbar {
+    border-radius: 23px;
+    width: 6px;
+    background-color: #EFEFEF;
+}
+
+
+.vendor-registered-list::-webkit-scrollbar-thumb {
+    background-color: #12C4E0;
+    border-radius: 23px;
+}
+
+
+.vendor-registered-list-item {
+    height: 89px;
+    border-radius: 8px;
+    background-color: #F2F2F2;
+}
+
+
+
+
+/* ============ Total Users Section ========= */
+
+.total-users {
+    max-width: 1081px;
+}
+
+.total-users h2 {
+    font-size: 30px;
+    line-height: 35px;
+    color: #121212;
+}
+
+.num-container {
+    height: 100px;
+    border-radius: 15px;
+    box-shadow: 5px 2px 43px rgba(0, 0, 0, 0.12);
+}
+
+.num-box::before {
+    content: '';
+    position: absolute;
+    width: 55px;
+    height: 71px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background: rgba(255, 255, 255, 0.44);
+    border-radius: 8px;
+}
+
+.num-box {
+    position: relative;
+    width: 45px;
+    height: 57px;
+    background: #FFFFFF;
+    border-radius: 5px;
+   
+}
+
+.num-text {
+    font-size: 30px;
+    line-height: 35px;
+    text-align: center;
+
+    color: #12C4E0;
+}

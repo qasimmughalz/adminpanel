@@ -1,23 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import Sidebar from './Components/Sidebar/Sidebar';
+import Dashboard from './Containers/Pages/Dashboard/Dashboard';
+import Authenticated from './Containers/Routes/Authenticated';
+import UnAuthenticated from './Containers/Routes/UnAuthenticated';
+
 
 function App() {
+
+  const token = true
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App w-full">
+        
+        {token ? <Authenticated/> : <UnAuthenticated/>}
     </div>
   );
 }
