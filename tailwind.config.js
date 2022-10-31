@@ -7,7 +7,8 @@ module.exports = {
     extend: {
       colors:{
         primary : '#12C4E0', 
-        secondary : '#A2A2A2'
+        secondary : '#A2A2A2', 
+        black: '#3A3A3A'
       }, 
       fontFamily:{
         'g-bold':['Gilroy-Bold'], 

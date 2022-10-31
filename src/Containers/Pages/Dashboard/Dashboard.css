@@ -36,7 +36,14 @@
     box-shadow: 5px 2px 43px rgba(0, 0, 0, 0.12);
     border-radius: 15px;
 }
-.trash-circle{
+
+.list-cards h1 {
+    font-size: 24px;
+    line-height: 28px;
+    color: #121212;
+}
+
+.trash-circle {
     height: 23px;
     width: 23px;
     background-color: #F80D0D;
@@ -95,7 +102,7 @@
     height: 71px;
     left: 50%;
     top: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     background: rgba(255, 255, 255, 0.44);
     border-radius: 8px;
 }
@@ -106,13 +113,37 @@
     height: 57px;
     background: #FFFFFF;
     border-radius: 5px;
-   
+
 }
 
 .num-text {
     font-size: 30px;
     line-height: 35px;
     text-align: center;
-
     color: #12C4E0;
+}
+
+.num-container .comma {
+    font-size: 30px;
+    line-height: 35px;
+    color: #fff;
+}
+
+
+@media only screen and (max-width: 768px) {
+
+    .num-box {
+        width: 20px;
+        height: 40px;
+    }
+
+    .num-box::before {
+        width: 35px;
+        display: none;
+    }
+
+    .num-text {
+        font-size: 20px;
+    }
+
 }

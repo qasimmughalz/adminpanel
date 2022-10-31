@@ -2,12 +2,12 @@ import React from 'react'
 import './TopNav.css'
 import userImg from '../../Assets/img/user-img.svg'
 
-const TopNav = () => {
+const TopNav = ({title}) => {
   return (
     <div className="bg-white mb-12 px-4 ">
         <div className='flex justify-between top-nav items-center m-auto px-1 md:px-0'>
             <div>
-                <h2 className='font-g-bold'>Dashboard</h2>
+                <h2 className='font-g-bold'>{title}</h2>
             </div>
             <div>
                 <ul className=' gap-5 items-center md:flex hidden'>

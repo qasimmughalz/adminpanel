@@ -3,13 +3,15 @@ import { Link } from "react-router-dom";
 import "./Sidebar.css";
 import dashboard from "../../Assets/img/dashboard.svg";
 import logo from "../../Assets/img/logo.svg";
+import logo2 from "../../Assets/img/logo2.svg";
 
 const Sidebar = () => {
   return (
     <>
       <div className="sidebar pl-6 hidden md:block">
-        <div className="logo-section pt-10">
+        <div className="logo-section pt-10 pl-5">
           <img src={logo} />
+          <img src={logo2} className='img-2'/>
         </div>
 
         <div className="menu-section pt-16">

@@ -8,20 +8,17 @@ import TrashIcon from "../../../Components/TrashIcon";
 
 const Dashboard = () => {
 
-    let num = 98765432123456
     
     let number = [...'98765432123456']
 
-    function numberWithCommas(x) {
-        return x.toString().replace(/\B(?<!\.\d*)(?=(\d{4})+(?!\d))/g, ",");
-    }
+   
 
 
 
   return (
     <div className="w-full dashboard ">
 
-        <TopNav/>
+        <TopNav title='Dashboard'/>
 
       {/* =============== Banners ======== */}
 
@@ -50,8 +47,8 @@ const Dashboard = () => {
       <div className="flex flex-wrap gap-5 justify-center mt-11 px-3 md:px-0">
         <div className="list-cards w-full  pl-8 pt-6">
           <h1 className="font-g-bold">Vendors Registered</h1>
-          <ul className="vendor-registered-list pr-4 mr-5 ">
-            <li className="vendor-registered-list-item mt-5">
+          <ul className="vendor-registered-list pr-4 mr-5 mt-6">
+            <li className="vendor-registered-list-item ">
                 <div className="flex justify-between items-center h-full px-5">
                     <div className="flex  items-center">
                     <img src={userImg} className="user-img" />
@@ -117,8 +114,8 @@ const Dashboard = () => {
 
         <div className="list-cards w-full  pl-8 pt-6">
           <h1 className="font-g-bold">Shopper Registered</h1>
-          <ul className="vendor-registered-list pr-4 mr-5">
-            <li className="vendor-registered-list-item mt-5">
+          <ul className="vendor-registered-list pr-4 mr-5 mt-5">
+            <li className="vendor-registered-list-item ">
               <div className="flex justify-between items-center h-full px-5">
                 <div className="flex  items-center">
                   <img src={userImg} className="user-img" />
@@ -184,16 +181,17 @@ const Dashboard = () => {
     {/* =============== Total Users  ======== */}
 
 
-    <div className="total-users mt-10 mx-auto mb-16">  
+    <div className="total-users mt-10 mx-auto mb-16 px-3 md:px-0">  
         <h2 className="font-g-bold">Total Number of Users</h2>
 
         <div className="num-container bg-primary mt-5">
 
-            <ul className="flex items-center justify-center h-full gap-5">
+            <ul className="flex items-center justify-center h-full gap-0.5 md:gap-5">
               { number.map(num=>{
-                return <li className="num-box text-center flex items-center justify-center" >
-                   <span className="num-text font-g-bold">{num}</span>
-               </li>
+                  return <li className="num-box text-center flex items-center justify-center" >
+                  <span className="num-text font-g-bold">{num}</span>
+              </li>
+               
               })
                 }
             </ul>
