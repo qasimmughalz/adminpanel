@@ -25,6 +25,12 @@
     line-height: 21px;
 }
 
+.menu-section .active p, .menu-section .active svg, .menu-section .active svg path{
+    color: #12C4E0 !important;
+    font-weight: bold !important;
+    fill:  #12C4E0;
+}
+
 .nav-item {
     cursor: pointer;
     align-items: center;

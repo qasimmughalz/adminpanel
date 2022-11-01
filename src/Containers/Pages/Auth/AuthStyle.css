@@ -1,0 +1,21 @@
+
+
+
+.form-container{
+    position: relative;
+    width: 100%;
+    max-width: 541px;
+    height: 420px;
+    background:  #12C4E0;
+    box-shadow: 5px 2px 43px rgba(0, 0, 0, 0.12);
+    border-radius: 15px;;
+}
+.login-page{
+    background-color: #EDFDFF;
+}
+
+.style-img{
+    position: absolute;
+    right: 0;
+    top: 0;
+}

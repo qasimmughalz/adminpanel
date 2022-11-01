@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./Sidebar.css";
 import dashboard from "../../Assets/img/dashboard.svg";
 import logo from "../../Assets/img/logo.svg";
@@ -16,7 +16,8 @@ const Sidebar = () => {
 
         <div className="menu-section pt-16">
           <ul className="list-none">
-            <li className="nav-item flex gap-3 mt-5 ">
+            
+            <NavLink to="/dashboard" className='nav-item flex gap-3 mt-5'> 
               <svg
                 width="18"
                 height="18"
@@ -30,11 +31,11 @@ const Sidebar = () => {
                 />
               </svg>
               <p className=" font-g-regular ">
-                <Link to="/"> Dashboard </Link>
+                Dashboard 
               </p>
-            </li>
+             </NavLink>
 
-            <li className="nav-item flex gap-3 mt-5">
+             <NavLink to="/processedOrder" className='nav-item flex gap-3 mt-5'> 
               <svg
                 width="20"
                 height="20"
@@ -49,11 +50,11 @@ const Sidebar = () => {
               </svg>
 
               <p className=" font-g-regular  ">
-                <Link to="/processedOrder">Processed Order</Link>
+                 Processed Order
               </p>
-            </li>
+              </NavLink>
 
-            <li className="nav-item flex gap-3 mt-5">
+            <NavLink to="/requestPosting" className='nav-item flex gap-3 mt-5'> 
               <svg
                 width="25"
                 height="13"
@@ -67,9 +68,9 @@ const Sidebar = () => {
                 />
               </svg>
               <p className="font-g-regular">
-                <Link to="/requestPosting">Request Posting</Link>
+               Request Posting
               </p>
-            </li>
+           </NavLink>
 
             <li className="nav-item flex gap-3 mt-5">
               <svg
@@ -86,7 +87,7 @@ const Sidebar = () => {
               </svg>
 
               <p className=" font-g-regular  ">
-                <Link to="/featuredVendors"> Feaured Vendors</Link>
+                <NavLink to="/featuredVendors"> Feaured Vendors</NavLink>
               </p>
             </li>
 

@@ -10,16 +10,15 @@ const Authenticated = () => {
   return (
     <>
         <Layout>
-
-
             <Routes>
                 <Route path='/' element={<Dashboard/>}/>
-                <Route path='processedOrder' element={<ProcessedOrder/>}/>
-                <Route path='requestPosting'  element={<RequestPosting/>} />
-                <Route path='featuredVendors' element={<FeaturedVendors/>} />
+                <Route path='/dashboard' element={<Dashboard/>}/>
+                <Route path='/processedOrder' element={<ProcessedOrder/>}/>
+                <Route path='/requestPosting'  element={<RequestPosting/>} />
+                <Route path='/featuredVendors' element={<FeaturedVendors/>} />
+                <Route path='*' element={<Dashboard/>}/>
 
             </Routes>    
-
         </Layout>
       
     </>

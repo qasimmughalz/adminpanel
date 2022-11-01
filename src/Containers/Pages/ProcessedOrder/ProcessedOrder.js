@@ -115,7 +115,7 @@ const ProcessedOrder = () => {
                     </div></td>
               </tr>
             {data.map(data =>{
-                return  <tr className="text-black font-g-regular">
+                return  <tr className="text-black font-g-regular" key={data}>
                 <td>{data}</td>
                 <td >
                   <div className="flex items-center   gap-2">

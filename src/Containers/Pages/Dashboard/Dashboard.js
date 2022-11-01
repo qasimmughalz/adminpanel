@@ -11,9 +11,6 @@ const Dashboard = () => {
     
     let number = [...'98765432123456']
 
-   
-
-
 
   return (
     <div className="w-full dashboard ">
@@ -187,8 +184,8 @@ const Dashboard = () => {
         <div className="num-container bg-primary mt-5">
 
             <ul className="flex items-center justify-center h-full gap-0.5 md:gap-5">
-              { number.map(num=>{
-                  return <li className="num-box text-center flex items-center justify-center" >
+              { number.map((num, index) =>{
+                  return <li className="num-box text-center flex items-center justify-center" key={index}>
                   <span className="num-text font-g-bold">{num}</span>
               </li>
                
