@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+    .help-btn {
+      @apply w-[123px] h-[48px] rounded-md text-white  bg-primary font-medium  text-base px-2 py-2.5 text-center
+    }
+    .warning-btn{
+      @apply w-[123px] h-[48px] rounded-md text-[#ED785E]  bg-warning font-medium  text-base px-2 py-2.5 text-center
+    }
+    .block-btn{
+      @apply w-[123px] h-[48px] rounded-md text-[#F80D0D]  bg-danger font-medium  text-base px-2 py-2.5 text-center
+    }
+    
+  }
+
 @font-face {
     font-family: Gilroy-Bold;
     src: url('./Assets/fonts/Gilroy-Bold.ttf');
@@ -16,3 +29,26 @@
     font-family: Gilroy-Regular;
     src: url('./Assets/fonts/Gilroy-Regular.ttf');
 }
+
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  .custom-scroll-bar {
+    scrollbar-width: thin;
+    scrollbar-color: #12C4E0 #ffffff;
+  }
+
+  /* Chrome, Edge, and Safari */
+  .custom-scroll-bar::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  .custom-scroll-bar::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+
+  .custom-scroll-bar::-webkit-scrollbar-thumb {
+    background-color: #12C4E0;
+    border-radius: 9px;
+    border: 3px solid #ffffff;
+  }
