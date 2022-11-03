@@ -4,7 +4,7 @@ import HelpRequestUsers from './HelpRequestUsers';
 
 const HelpRequest = () => {
   return (
-    <div className='w-full'>
+    <div className='w-full '>
       <TopNav title={'Help Request'} />
       <HelpRequestUsers />
     </div>

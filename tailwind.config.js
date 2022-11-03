@@ -9,6 +9,8 @@ module.exports = {
         black: '#3A3A3A',
         warning: '#FFCDA3',
         danger: '#FFACAB',
+        customGray: '#3A3A3A',
+        lightBlue: 'rgba(18, 196, 224, 0.41)',
       },
       fontFamily: {
         'g-bold': ['Gilroy-Bold'],

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Spinner from '../../../Components/spinner/Spinner';
 import { dummyUsersData } from '../../../Utils/DummyUsers';
 
-const HelpRequestUsers = () => {
+const ReportedBugUsers = () => {
   const [usersData, setUsersData] = useState(null);
 
   // Get Dummy Users Data
@@ -22,13 +22,13 @@ const HelpRequestUsers = () => {
         {usersData &&
           usersData.map((data, index) => (
             <div
-              className=' bg-white w-[95%] mx-auto h-[350px] flex flex-col justify-center px-4 mb-4 rounded-[10px]  shadow-sm lg:w-[1045px] lg:h-[304px] md:m-auto md:mb-4 '
+              className=' bg-white py-6 w-[95%] mx-auto min-h-[228px] flex flex-col justify-center px-4 mb-4 rounded-[10px]  shadow-sm lg:py-0 lg:w-[1045px] lg:h-[228px] md:m-auto md:mb-4 '
               key={index}
             >
-              <div className='flex items-center'>
+              <div className='flex flex-col md:flex-row items-center'>
                 <img
                   src={data.image}
-                  className='bg-gray-100 w-[92px] h-[92px] rounded-full'
+                  className='bg-gray-100 w-[92px] h-[92px] rounded-full mb-3 lg:mb-0'
                 />
 
                 <div className='flex flex-col ml-4 '>
@@ -40,13 +40,12 @@ const HelpRequestUsers = () => {
                   </p>
                 </div>
               </div>
-              <input
-                type='text'
-                value=''
-                placeholder='write a reply'
-                className='h-[72px] w-full  text-base my-4 px-6 rounded-[5px] border border-[#A2A2A2] focus:ring-3 focus:ring-blue-300 focus:outline-blue-300 lg:w-[967px]'
-              />
-              <button className='help-btn'>Comment</button>
+
+              <div className='flex items-center mt-6'>
+                <button className='bugs-btn '>Coding</button>
+                <button className='bugs-btn mx-2  md:mx-3 '>UI Design</button>
+                <button className='bugs-btn '>HTML</button>
+              </div>
             </div>
           ))}
       </div>
@@ -54,4 +53,4 @@ const HelpRequestUsers = () => {
   );
 };
 
-export default HelpRequestUsers;
+export default ReportedBugUsers;

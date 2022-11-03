@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Spinner from '../../../Components/spinner/Spinner';
 import { dummyUsersData } from '../../../Utils/DummyUsers';
 
-const ReportedUsersData = () => {
+const CallBackUsers = () => {
   const [usersData, setUsersData] = useState(null);
 
   // Get Dummy Users Data
@@ -22,7 +22,7 @@ const ReportedUsersData = () => {
         {usersData &&
           usersData.map((data, index) => (
             <div
-              className='bg-white w-[95%] mx-auto h-[170px] flex flex-col justify-center px-4 mb-4 rounded-[10px]  shadow-sm lg:w-[1045px] lg:h-[134px] md:m-auto md:mb-4'
+              className='bg-white w-[95%] mx-auto min-h-[150px] flex flex-col justify-center px-4 mb-4 rounded-[10px]  shadow-sm lg:w-[1045px] lg:h-[134px] md:m-auto md:mb-4'
               key={index}
             >
               <div className='flex items-center justify-between'>
@@ -36,10 +36,7 @@ const ReportedUsersData = () => {
                   </h3>
                 </div>
                 <div className='flex flex-col items-center md:flex-row'>
-                  <button className='block-btn mb-3 md:mb-0 md:mr-3'>
-                    Block
-                  </button>
-                  <button className='warning-btn'>Warning </button>
+                  <button className='callback-btn '>Call Back</button>
                 </div>
               </div>
             </div>
@@ -49,4 +46,4 @@ const ReportedUsersData = () => {
   );
 };
 
-export default ReportedUsersData;
+export default CallBackUsers;

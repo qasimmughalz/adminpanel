@@ -4,13 +4,19 @@
 
 @layer components {
     .help-btn {
-      @apply w-[123px] h-[48px] rounded-md text-white  bg-primary font-medium  text-base px-2 py-2.5 text-center
+      @apply w-[123px] h-[48px] rounded-[5px] text-white  bg-primary font-g-regular  text-[18px]  text-center
     }
     .warning-btn{
-      @apply w-[123px] h-[48px] rounded-md text-[#ED785E]  bg-warning font-medium  text-base px-2 py-2.5 text-center
+      @apply w-[123px] h-[48px] rounded-[5px] text-[#ED785E]  bg-warning font-g-regular  text-[18px]  text-center
     }
     .block-btn{
-      @apply w-[123px] h-[48px] rounded-md text-[#F80D0D]  bg-danger font-medium  text-base px-2 py-2.5 text-center
+      @apply w-[123px] h-[48px] rounded-[5px] text-[#F80D0D]  bg-danger font-g-regular  text-[18px]  text-center
+    }
+    .bugs-btn{
+      @apply w-[123px] h-[48px] rounded-[5px] text-primary  bg-lightBlue font-g-regular  text-[18px]  text-center
+    }
+    .callback-btn{
+      @apply w-[123px] h-[48px] rounded-[5px] text-[#069425]  bg-[#C1FFE1] font-g-regular  text-[18px]  text-center
     }
     
   }
@@ -45,6 +51,7 @@
 
   .custom-scroll-bar::-webkit-scrollbar-track {
     background: #ffffff;
+    border-radius: 50px;
   }
 
   .custom-scroll-bar::-webkit-scrollbar-thumb {

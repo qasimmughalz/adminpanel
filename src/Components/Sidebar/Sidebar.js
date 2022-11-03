@@ -117,7 +117,7 @@ const Sidebar = () => {
               <p className='font-g-regular '>Reported Users</p>
             </NavLink>
 
-            <li className='nav-item flex gap-3 mt-5'>
+            <NavLink to='/reportedBugs' className='nav-item flex gap-3 mt-5'>
               <svg
                 width='16'
                 height='18'
@@ -131,9 +131,9 @@ const Sidebar = () => {
                 />
               </svg>
               <p className='y font-g-regular '>Reported Bugs</p>
-            </li>
+            </NavLink>
 
-            <li className='nav-item flex gap-3 mt-5'>
+            <NavLink to='/callBacks' className='nav-item flex gap-3 mt-5'>
               <svg
                 width='14'
                 height='18'
@@ -148,7 +148,7 @@ const Sidebar = () => {
               </svg>
 
               <p className='font-g-regular '>Call Backs </p>
-            </li>
+            </NavLink>
 
             <li className='nav-item flex gap-3 mt-5'>
               <svg
@@ -166,7 +166,7 @@ const Sidebar = () => {
               <p className='font-g-regular'>Support Tickets </p>
             </li>
 
-            <li className='nav-item flex gap-3 mt-5'>
+            <NavLink to='/manageFaqs' className='nav-item flex gap-3 mt-5'>
               <svg
                 width='22'
                 height='22'
@@ -189,7 +189,7 @@ const Sidebar = () => {
               </svg>
 
               <p className='font-g-regular '>FAQ's</p>
-            </li>
+            </NavLink>
           </ul>
         </div>
       </div>
