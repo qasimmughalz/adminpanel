@@ -7,13 +7,10 @@ const RequestUsers = () => {
   const [usersData, setUsersData] = useState(null);
 
   // Get Dummy Users Data
-  useEffect(
-    () => async () => {
-      let data = await dummyUsersData();
-      setUsersData(data);
-    },
-    []
-  );
+  useEffect(() => {
+    setUsersData(dummyUsersData);
+  }, [dummyUsersData]);
+
   if (!usersData) {
     return <Spinner />;
   }
