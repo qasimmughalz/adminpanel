@@ -4,7 +4,7 @@ import TopNav from '../../../Components/TopNav/TopNav';
 const ManageFaqs = () => {
   return (
     <div className='w-full'>
-      <TopNav title='Manage ManageFaqs' />
+      <TopNav title={`Manage FAQ's`} />
       <div>
         {/*---Faqs1 */}
         <div className=' bg-white w-[95%] mx-auto min-h-[200] flex flex-col justify-center px-4 mb-4 rounded-[10px] py-4 shadow-sm lg:w-[1045px] lg:h-[186px] md:m-auto md:mb-4  lg:py-0'>
