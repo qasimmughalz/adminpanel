@@ -65,7 +65,7 @@ const Sidebar = () => {
               <p className='font-g-regular'>Request Posting</p>
             </NavLink>
 
-            <li className='nav-item flex gap-3 mt-5'>
+            <NavLink to='/featuredVendors' className='nav-item flex gap-3 mt-5'>
               <svg
                 width='24'
                 height='18'
@@ -79,10 +79,8 @@ const Sidebar = () => {
                 />
               </svg>
 
-              <p className=' font-g-regular  '>
-                <NavLink to='/featuredVendors'> Feaured Vendors</NavLink>
-              </p>
-            </li>
+              <p className=' font-g-regular  '>Featured Vendors</p>
+            </NavLink>
 
             <NavLink to='/helpRequest' className='nav-item flex gap-3 mt-5'>
               <svg
@@ -150,7 +148,7 @@ const Sidebar = () => {
               <p className='font-g-regular '>Call Backs </p>
             </NavLink>
 
-            <li className='nav-item flex gap-3 mt-5'>
+            {/* <li className='nav-item flex gap-3 mt-5'>
               <svg
                 width='16'
                 height='22'
@@ -164,7 +162,7 @@ const Sidebar = () => {
                 />
               </svg>
               <p className='font-g-regular'>Support Tickets </p>
-            </li>
+            </li> */}
 
             <NavLink to='/manageFaqs' className='nav-item flex gap-3 mt-5'>
               <svg
