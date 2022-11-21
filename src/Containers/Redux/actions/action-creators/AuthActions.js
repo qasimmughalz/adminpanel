@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify';
 import Axios from '../../../../Axios/Axios';
 import * as ActionTypes from '../action-types/ActionTypes';
 
@@ -12,6 +13,7 @@ export const loginUser = (formData, navigate) => async (dispatch) => {
     navigate('/dashboard');
   } catch (error) {
     console.log(error);
+    toast.error(error.response.data.message);
   }
 };
 

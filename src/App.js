@@ -1,4 +1,6 @@
 import { useSelector } from 'react-redux';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 import Sidebar from './Components/Sidebar/Sidebar';
 import Dashboard from './Containers/Pages/Dashboard/Dashboard';
@@ -17,6 +19,18 @@ function App() {
   return (
     <div className='App w-full'>
       {userFound ? <Authenticated /> : <UnAuthenticated />}
+      <ToastContainer
+        position='top-right'
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme='light'
+      />
     </div>
   );
 }
