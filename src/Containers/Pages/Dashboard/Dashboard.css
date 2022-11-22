@@ -145,5 +145,24 @@
     .num-text {
         font-size: 20px;
     }
+    .banner-card{
+        max-width: 100%;
+    }
 
+}
+
+@media (max-width:990px){
+    .num-box {
+        width: 20px;
+        height: 40px;
+    }
+
+    .num-box::before {
+        width: 35px;
+        display: none;
+    }
+
+    .num-text {
+        font-size: 20px;
+    }
 }

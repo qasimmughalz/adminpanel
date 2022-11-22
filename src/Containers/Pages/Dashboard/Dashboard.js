@@ -29,8 +29,8 @@ const Dashboard = () => {
 
       {/* =============== Banners ======== */}
 
-      <div className='flex flex-wrap gap-5 justify-center px-3 md:px-0'>
-        <div className='flex items-center h-full  w-full   banner-card'>
+      <div className='flex flex-col   gap-5 justify-center px-3 md:px-0 lg:flex-row'>
+        <div className='flex  items-center m-auto h-full  w-full   banner-card'>
           <img src={bannerImgOne} className='banner-style' />
           <div className=' pl-8'>
             <h1 className='font-g-bold'>{vendorsData?.totalResult}</h1>
@@ -38,7 +38,7 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <div className='flex h-full w-full   items-center banner-card'>
+        <div className='flex h-full w-full m-auto  items-center banner-card'>
           <img src={bannerImgTwo} className='banner-style' />
           <div className=' pl-8'>
             <h1 className='font-g-bold'>{shoppersData?.totalResult}</h1>
@@ -49,8 +49,8 @@ const Dashboard = () => {
 
       {/* =============== Registered List  ======== */}
 
-      <div className='flex flex-wrap gap-5 justify-center mt-11 px-3 md:px-0'>
-        <div className='list-cards w-full  pl-8 pt-6'>
+      <div className='flex flex-col gap-5 justify-center mt-11 px-3 md:px-0 lg:flex-row'>
+        <div className='list-cards w-full m-auto  pl-8 pt-6'>
           <h1 className='font-g-bold'>Vendors Registered</h1>
           <ul className='vendor-registered-list pr-4 mr-5 mt-6'>
             {vendorsData?.result.length > 0 &&
@@ -74,7 +74,7 @@ const Dashboard = () => {
           </ul>
         </div>
 
-        <div className='list-cards w-full  pl-8 pt-6'>
+        <div className='list-cards w-full m-auto  pl-8 pt-6'>
           <h1 className='font-g-bold'>Shopper Registered</h1>
           <ul className='vendor-registered-list pr-4 mr-5 mt-5'>
             {shoppersData?.data.length > 0 &&
