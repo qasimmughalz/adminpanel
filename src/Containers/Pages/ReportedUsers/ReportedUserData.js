@@ -32,8 +32,8 @@ const ReportedUsersData = () => {
                     {data.firstName} {data.lastName}
                   </h3>
                 </div>
-                <div className='flex flex-col items-center md:flex-row'>
-                  <button className='block-btn mb-3 md:mb-0 md:mr-3'>
+                <div className='flex flex-col items-center lg:flex-row'>
+                  <button className='block-btn mb-3 lg:mb-0 lg:mr-3'>
                     Block
                   </button>
                   <button className='warning-btn'>Warning </button>

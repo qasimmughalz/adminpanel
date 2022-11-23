@@ -15,11 +15,11 @@ const HelpRequestUsers = () => {
   }
   return (
     <div className=' max-h-[75vh]'>
-      <div className='container mx-auto w-[95%] h-[75vh]  overflow-y-scroll custom-scroll-bar lg:w-[1070px]'>
+      <div className='container mx-auto w-[95%] h-[75vh]  overflow-y-scroll custom-scroll-bar lg:w-[1070px] responsive-container'>
         {usersData &&
           usersData.map((data, index) => (
             <div
-              className=' bg-white w-[95%] mx-auto h-[350px] flex flex-col justify-center px-4 mb-4 rounded-[10px]  shadow-sm lg:w-[1045px] lg:h-[304px] md:m-auto md:mb-4 '
+              className=' bg-white w-[95%] mx-auto h-[350px] flex flex-col justify-center px-4 mb-4 rounded-[10px]  shadow-sm lg:w-[1045px] lg:h-[304px] md:m-auto md:mb-4 responsive-inner-container'
               key={index}
             >
               <div className='flex items-center'>
@@ -41,7 +41,7 @@ const HelpRequestUsers = () => {
                 type='text'
                 value=''
                 placeholder='write a reply'
-                className='h-[72px] w-full  text-base my-4 px-6 rounded-[5px] border border-[#A2A2A2] focus:ring-3 focus:ring-blue-300 focus:outline-blue-300 lg:w-[967px]'
+                className='h-[72px] w-full  text-base my-4 px-6 rounded-[5px] border border-[#A2A2A2] focus:ring-3 focus:ring-blue-300 focus:outline-blue-300 lg:w-[967px] responsive-inner-container'
               />
               <button className='help-btn'>Comment</button>
             </div>
