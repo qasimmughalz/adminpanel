@@ -15,11 +15,11 @@ const ReportedBugUsers = () => {
   }
   return (
     <div className=' max-h-[75vh]'>
-      <div className='container mx-auto w-[95%] h-[75vh]  overflow-y-scroll custom-scroll-bar lg:w-[1070px]'>
+      <div className='container mx-auto w-[95%] h-[75vh]  overflow-y-scroll custom-scroll-bar lg:w-[1070px] responsive-container'>
         {usersData &&
           usersData.map((data, index) => (
             <div
-              className=' bg-white py-6 w-[95%] mx-auto min-h-[228px] flex flex-col justify-center px-4 mb-4 rounded-[10px]  shadow-sm lg:py-0 lg:w-[1045px] lg:h-[228px] md:m-auto md:mb-4 '
+              className=' bg-white py-6 w-[95%] mx-auto min-h-[228px] flex flex-col justify-center px-4 mb-4 rounded-[10px]  shadow-sm lg:py-0 lg:w-[1045px] lg:h-[228px] md:m-auto md:mb-4 responsive-inner-container'
               key={index}
             >
               <div className='flex flex-col md:flex-row items-center'>

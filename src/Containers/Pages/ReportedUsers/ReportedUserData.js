@@ -15,11 +15,11 @@ const ReportedUsersData = () => {
   }
   return (
     <div className='max-h-[75vh] '>
-      <div className='container mx-auto w-[95%] h-[75vh]  overflow-y-scroll custom-scroll-bar lg:w-[1070px]'>
+      <div className='container mx-auto w-[95%] h-[75vh]  overflow-y-scroll custom-scroll-bar lg:w-[1070px] responsive-container'>
         {usersData &&
           usersData.map((data, index) => (
             <div
-              className='bg-white w-[95%] mx-auto h-[170px] flex flex-col justify-center px-4 mb-4 rounded-[10px]  shadow-sm lg:w-[1045px] lg:h-[134px] md:m-auto md:mb-4'
+              className='bg-white w-[95%] mx-auto h-[170px] flex flex-col justify-center px-4 mb-4 rounded-[10px]  shadow-sm lg:w-[1045px] lg:h-[134px] md:m-auto md:mb-4 responsive-inner-container'
               key={index}
             >
               <div className='flex items-center justify-between'>

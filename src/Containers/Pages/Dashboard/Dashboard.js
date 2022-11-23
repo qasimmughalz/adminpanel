@@ -29,8 +29,8 @@ const Dashboard = () => {
 
       {/* =============== Banners ======== */}
 
-      <div className='flex flex-col   gap-5 justify-center px-3 md:px-0 lg:flex-row'>
-        <div className='flex  items-center m-auto h-full  w-full   banner-card'>
+      <div className='flex flex-col   gap-5 justify-center px-3 md:px-0 lg:flex-row responsive-dashboard-container'>
+        <div className='flex  items-center m-auto h-full  w-full   banner-card responsive-dashboard-inner-container'>
           <img src={bannerImgOne} className='banner-style' />
           <div className=' pl-8'>
             <h1 className='font-g-bold'>{vendorsData?.totalResult}</h1>
@@ -38,7 +38,7 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <div className='flex h-full w-full m-auto  items-center banner-card'>
+        <div className='flex h-full w-full m-auto  items-center banner-card responsive-dashboard-inner-container'>
           <img src={bannerImgTwo} className='banner-style' />
           <div className=' pl-8'>
             <h1 className='font-g-bold'>{shoppersData?.totalResult}</h1>
@@ -49,13 +49,16 @@ const Dashboard = () => {
 
       {/* =============== Registered List  ======== */}
 
-      <div className='flex flex-col gap-5 justify-center mt-11 px-3 md:px-0 lg:flex-row'>
-        <div className='list-cards w-full m-auto  pl-8 pt-6'>
+      <div className='flex flex-col gap-5 justify-center mt-11 px-3 md:px-0 lg:flex-row responsive-dashboard-container'>
+        <div className='list-cards w-full m-auto  pl-8 pt-6 responsive-dashboard-container'>
           <h1 className='font-g-bold'>Vendors Registered</h1>
           <ul className='vendor-registered-list pr-4 mr-5 mt-6'>
             {vendorsData?.result.length > 0 &&
               vendorsData.result.map((data, index) => (
-                <li className='vendor-registered-list-item mb-5' key={index}>
+                <li
+                  className='vendor-registered-list-item mb-5 responsive-dashboard-inner-container'
+                  key={index}
+                >
                   <div className='flex justify-between items-center h-full px-5'>
                     <div className='flex  items-center'>
                       <img src={userImg} className='user-img' />
@@ -74,12 +77,15 @@ const Dashboard = () => {
           </ul>
         </div>
 
-        <div className='list-cards w-full m-auto  pl-8 pt-6'>
+        <div className='list-cards w-full m-auto  pl-8 pt-6 responsive-dashboard-container'>
           <h1 className='font-g-bold'>Shopper Registered</h1>
           <ul className='vendor-registered-list pr-4 mr-5 mt-5'>
             {shoppersData?.data.length > 0 &&
               shoppersData.data.map((data, index) => (
-                <li className='vendor-registered-list-item mb-5' key={index}>
+                <li
+                  className='vendor-registered-list-item mb-5 responsive-dashboard-inner-container'
+                  key={index}
+                >
                   <div className='flex justify-between items-center h-full px-5'>
                     <div className='flex  items-center'>
                       <img src={userImg} className='user-img' />
@@ -99,10 +105,10 @@ const Dashboard = () => {
 
       {/* =============== Total Users  ======== */}
 
-      <div className='total-users mt-10 mx-auto mb-16 px-3 md:px-0'>
+      <div className='total-users mt-10 mx-auto mb-16 px-3 md:px-0 responsive-dashboard-container'>
         <h2 className='font-g-bold'>Total Number of Users</h2>
 
-        <div className='num-container bg-primary mt-5'>
+        <div className='num-container bg-primary mt-5 responsive-dashboard-container'>
           <ul className='flex items-center justify-center h-full gap-0.5 md:gap-5'>
             {number.map((num, index) => {
               return (

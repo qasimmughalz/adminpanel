@@ -13,8 +13,8 @@ const ProcessedOrder = () => {
 
       {/* =============== Banners ======== */}
 
-      <div className='processed-container  '>
-        <div className='table-head flex justify-between items-center px-8 pt-7'>
+      <div className='processed-container responsive-dashboard-container '>
+        <div className='table-head flex justify-between items-center px-8 pt-7 responsive-dashboard-inner-container'>
           <div>
             <h2 className='font-g-bold'>List of Orders</h2>
           </div>

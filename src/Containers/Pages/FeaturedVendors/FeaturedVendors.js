@@ -8,9 +8,9 @@ const FeaturedVendors = () => {
   return (
     <div className='w-full'>
       <TopNav title='Featured Vendors' />
-      <div className='container mx-auto flex flex-col lg:flex-row '>
+      <div className='container mx-auto flex flex-col lg:flex-row responsive-container'>
         <Vendors />
-        <div className='flex flex-col'>
+        <div className='flex flex-col gap-2'>
           <Giveaays />
           <Article />
         </div>

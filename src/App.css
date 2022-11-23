@@ -3,4 +3,23 @@
   min-height: 100vh;
 }
 
+@media (min-width:1025px) and (max-width:1300px){
+  .responsive-container{
+    width: 100% !important;
+  }
+  .responsive-inner-container{
+    width: 97%;
+  }
+}
+
+
+@media (min-width:991px) and (max-width:1300px){
+  .responsive-dashboard-container{
+    width: 100% !important;
+  }
+  .responsive-dashboard-inner-container{
+    width: 97%;
+  }
+}
+
 
