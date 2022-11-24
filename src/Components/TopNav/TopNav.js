@@ -14,7 +14,7 @@ const TopNav = ({ title }) => {
 
   return (
     <div className='bg-white mb-12  relative '>
-      <div className='flex justify-between top-nav items-center m-auto px-1 md:px-0'>
+      <div className='flex justify-between top-nav items-center m-auto px-8 md:px-0'>
         <div>
           <h2 className='font-g-bold'>{title}</h2>
         </div>
@@ -82,7 +82,7 @@ const TopNav = ({ title }) => {
       {/*Mobile Side bar */}
 
       <div
-        className={`mobile-sidebar block md:hidden ${
+        className={`mobile-sidebar block md:hidden pl-4 ${
           mobileSideBar ? 'menu-active' : ''
         }`}
       >

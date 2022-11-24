@@ -3,8 +3,8 @@ import GiveImg from '../../../Assets/img/giveaay.png';
 
 const Giveaays = () => {
   return (
-    <div className='w-full lg:w-[483px] h-[359px] bg-white m-auto rounded-[15px] p-4 sm:mt-4 lg:my-0 responsive-inner-container'>
-      <p className='text-base text-[#121212] font-g-bold p-4 line-height-[28px] md:text-[24px]'>
+    <div className='w-full lg:w-[483px] h-[359px] bg-white m-auto  rounded-[15px] p-4 sm:mt-4 lg:my-0 responsive-inner-container'>
+      <p className='text-2xl text-[#121212] font-g-bold p-4 line-height-[28px] md:text-[24px]'>
         Giveaays
       </p>
       <div className='w-[162px] h-[98px] bg-[#F2F2F2] rounded-lg flex items-center justify-center'>

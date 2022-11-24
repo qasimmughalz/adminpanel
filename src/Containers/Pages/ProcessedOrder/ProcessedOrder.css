@@ -81,6 +81,7 @@
     white-space: nowrap !important;
     font-size: 15px;
     line-height: 18px;
+    min-width: 100px;
 }
 
 .processed-table .user-img {
