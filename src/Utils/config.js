@@ -1,6 +1,6 @@
 export const config = (token) => {
   let config = {
-    headers: {
+    Headers: {
       ['Authorization']: `${token}`,
     },
   };
