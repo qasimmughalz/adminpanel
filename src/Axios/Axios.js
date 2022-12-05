@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const Axios = axios.create({
   // baseURL: "http://localhost:5000/api",
-  baseURL: 'http://54.89.226.132:3005/api/v1',
+  baseURL: 'https://api.avendy.app/api/v1/',
 });
 
 Axios.interceptors.request.use((request) => {

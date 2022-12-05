@@ -32,7 +32,7 @@ const Article = () => {
     }
   };
   return (
-    <div className='w-full lg:w-[483px] h-[359px] bg-white m-auto rounded-[15px] p-4 responsive-inner-container'>
+    <div className='w-full lg:w-[483px] h-[359px] bg-white m-auto  rounded-[15px] p-4 responsive-inner-container'>
       <p className='text-base text-[#121212] font-g-bold p-4 line-height-[28px] md:text-[24px]'>
         Article
       </p>

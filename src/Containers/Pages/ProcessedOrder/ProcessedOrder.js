@@ -13,14 +13,15 @@ const ProcessedOrder = () => {
 
       {/* =============== Banners ======== */}
 
+      <div className='px-4 lg:px-0'>
       <div className='processed-container responsive-dashboard-container '>
-        <div className='table-head flex justify-between items-center px-8 pt-7 responsive-dashboard-inner-container'>
+        <div className='table-head flex justify-between items-center px-4 md:px-8  pt-4 md:pt-7 responsive-dashboard-inner-container'>
           <div>
             <h2 className='font-g-bold'>List of Orders</h2>
           </div>
           <div className='flex gap-5'>
-            <div className='table-search-box flex justify-between items-center px-5'>
-              <input placeholder='Search Here' className='font-g-medium' />
+            <div className='table-search-box flex justify-between items-center px-3 md:px-5'>
+              <input placeholder='Search Here' className='font-g-medium outline-none' />
               <svg
                 width='24'
                 height='24'
@@ -64,7 +65,7 @@ const ProcessedOrder = () => {
         <hr className='mt-4 divider-line' />
 
         <div className='table-container mt-12'>
-          <table class='table w-full text-center processed-table'>
+          <table class='table w-full text-center processed-table pl-3'>
             <thead>
               <tr>
                 <th className='font-g-bold text-primary'>Id</th>
@@ -79,7 +80,7 @@ const ProcessedOrder = () => {
               <tr className='text-black font-g-regular'>
                 <td>32</td>
                 <td>
-                  <div className='flex items-center   gap-2'>
+                  <div className='flex items-center justify-center  gap-2'>
                     <div className='user-img'>
                       <img src={userImg} />
                     </div>
@@ -96,7 +97,7 @@ const ProcessedOrder = () => {
                 </td>
                 <td>
                   {' '}
-                  <div className='trash-circle text-center flex items-center justify-center'>
+                  <div className='trash-circle m-auto text-center flex items-center justify-center'>
                     <TrashIcon />
                   </div>
                 </td>
@@ -104,7 +105,7 @@ const ProcessedOrder = () => {
               <tr className='text-black font-g-regular'>
                 <td>33</td>
                 <td>
-                  <div className='flex items-center   gap-2'>
+                  <div className='flex items-center justify-center  gap-2'>
                     <div className='user-img'>
                       <img src={userImg} />
                     </div>
@@ -121,7 +122,7 @@ const ProcessedOrder = () => {
                 </td>
                 <td>
                   {' '}
-                  <div className='trash-circle text-center flex items-center justify-center'>
+                  <div className='trash-circle text-center m-auto flex items-center justify-center'>
                     <TrashIcon />
                   </div>
                 </td>
@@ -131,7 +132,7 @@ const ProcessedOrder = () => {
                   <tr className='text-black font-g-regular' key={data}>
                     <td>{data}</td>
                     <td>
-                      <div className='flex items-center   gap-2'>
+                      <div className='flex items-center justify-center gap-2'>
                         <div className='user-img'>
                           <img src={userImg} />
                         </div>
@@ -148,7 +149,7 @@ const ProcessedOrder = () => {
                     </td>
                     <td>
                       {' '}
-                      <div className='trash-circle text-center flex items-center justify-center'>
+                      <div className='trash-circle text-center m-auto flex items-center justify-center'>
                         <TrashIcon />
                       </div>
                     </td>
@@ -158,6 +159,7 @@ const ProcessedOrder = () => {
             </tbody>
           </table>
         </div>
+      </div>
       </div>
     </div>
   );

@@ -90,5 +90,8 @@
         display: block;
        
     }
+    .top-nav h2 {
+        font-size: 26px;
+    }
     
 }

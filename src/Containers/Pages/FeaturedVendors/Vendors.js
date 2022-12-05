@@ -14,8 +14,8 @@ const Vendors = () => {
     return <Spinner />;
   }
   return (
-    <div className='w-full lg:w-[560px] h-[730px] bg-white m-auto rounded-[15px] p-4 responsive-inner-container'>
-      <p className='text-base text-[#121212] font-g-bold p-4 line-height-[28px] md:text-[24px]'>
+    <div className='w-full lg:w-[560px] h-[730px] bg-white m-auto md:m-0 rounded-[15px] p-4 responsive-inner-container'>
+      <p className='text-2xl text-[#121212] font-g-bold p-4 line-height-[28px] md:text-[24px]'>
         Vendors
       </p>
       <div className='w-[100%] h-[650px] lg:w-[520px] overflow-y-scroll custom-scroll-bar responsive-container'>

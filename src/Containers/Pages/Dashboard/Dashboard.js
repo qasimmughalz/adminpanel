@@ -12,11 +12,12 @@ import {
 } from '../../Redux/actions/action-creators/VendorsAction';
 
 const Dashboard = () => {
-  let number = [...'98765432123456'];
+  // let number = [...'98765432123456'];
   const token = useSelector((state) => state?.Auth.user.data.token);
   const dispatch = useDispatch();
   const vendorsData = useSelector((state) => state?.admin.vendors);
   const shoppersData = useSelector((state) => state?.admin.shoppers);
+  let number = [...`${vendorsData?.totalResult + shoppersData?.totalResult}`]
 
   useEffect(() => {
     dispatch(getAllVendors(token));
@@ -29,8 +30,8 @@ const Dashboard = () => {
 
       {/* =============== Banners ======== */}
 
-      <div className='flex flex-col   gap-5 justify-center px-3 md:px-0 lg:flex-row responsive-dashboard-container'>
-        <div className='flex  items-center m-auto h-full  w-full   banner-card responsive-dashboard-inner-container'>
+      <div className='flex flex-col   gap-5 justify-center px-6 sm:px-6 md:px-0 lg:flex-row responsive-dashboard-container'>
+        <div className='flex  items-center m-auto md:m-0 h-full  w-full   banner-card responsive-dashboard-inner-container'>
           <img src={bannerImgOne} className='banner-style' />
           <div className=' pl-8'>
             <h1 className='font-g-bold'>{vendorsData?.totalResult}</h1>
@@ -38,7 +39,7 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <div className='flex h-full w-full m-auto  items-center banner-card responsive-dashboard-inner-container'>
+        <div className='flex h-full w-full m-auto md:m-0  items-center banner-card responsive-dashboard-inner-container'>
           <img src={bannerImgTwo} className='banner-style' />
           <div className=' pl-8'>
             <h1 className='font-g-bold'>{shoppersData?.totalResult}</h1>
@@ -49,8 +50,8 @@ const Dashboard = () => {
 
       {/* =============== Registered List  ======== */}
 
-      <div className='flex flex-col gap-5 justify-center mt-11 px-3 md:px-0 lg:flex-row responsive-dashboard-container'>
-        <div className='list-cards w-full m-auto  pl-8 pt-6 responsive-dashboard-container'>
+      <div className='flex flex-col gap-5 justify-center mt-11 px-6 md:px-0 lg:flex-row responsive-dashboard-container'>
+        <div className='list-cards w-full m-auto md:m-0 pl-8 pt-6 responsive-dashboard-container'>
           <h1 className='font-g-bold'>Vendors Registered</h1>
           <ul className='vendor-registered-list pr-4 mr-5 mt-6'>
             {vendorsData?.result.length > 0 &&
@@ -77,7 +78,7 @@ const Dashboard = () => {
           </ul>
         </div>
 
-        <div className='list-cards w-full m-auto  pl-8 pt-6 responsive-dashboard-container'>
+        <div className='list-cards w-full m-auto md:m-0  pl-8 pt-6 responsive-dashboard-container'>
           <h1 className='font-g-bold'>Shopper Registered</h1>
           <ul className='vendor-registered-list pr-4 mr-5 mt-5'>
             {shoppersData?.data.length > 0 &&
@@ -105,12 +106,12 @@ const Dashboard = () => {
 
       {/* =============== Total Users  ======== */}
 
-      <div className='total-users mt-10 mx-auto mb-16 px-3 md:px-0 responsive-dashboard-container'>
+      <div className='total-users mt-10 mx-auto mb-16 px-6 md:px-0 responsive-dashboard-container'>
         <h2 className='font-g-bold'>Total Number of Users</h2>
 
         <div className='num-container bg-primary mt-5 responsive-dashboard-container'>
           <ul className='flex items-center justify-center h-full gap-0.5 md:gap-5'>
-            {number.map((num, index) => {
+            {number?.map((num, index) => {
               return (
                 <li
                   className='num-box text-center flex items-center justify-center'
