@@ -4,6 +4,7 @@ import { addFaqs, getFaqs } from '../../../Utils/HelperFunctions';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 import { useSelector } from 'react-redux';
+import FileImg from '../../../Assets/img/article.png';
 
 const ManageFaqs = () => {
   const [faqsData, setFaqsData] = useState([]);
@@ -71,14 +72,19 @@ const ManageFaqs = () => {
 
         {/*---Faqs3 */}
         <div className=' bg-white w-[95%] py-4 mx-auto min-h-[280] flex flex-col justify-center px-4 mb-4 rounded-[10px]  shadow-sm  lg:py-2 lg:w-[1045px] lg:h-[254px] md:m-auto md:mb-4 responsive-inner-container'>
-          <label className='block text-gray-500 '>Upload Image</label>
+          <label
+            htmlFor='file'
+            className='block text-gray-500 cursor-pointer mb-2 '
+          >
+            <img src={FileImg} />
+          </label>
           <input
             type='file'
             value={faqs.file}
             name='file'
             id='file'
             onChange={handleChange}
-            className='w-full h-[35px] lg:w-[988px]  rounded-[5px]  font-g-medium text-base line-height-[19px] text-[#A2A2A2] mt-2 focus:outline-blue-500 responsive-container'
+            className='file-input w-full h-[35px] lg:w-[988px]  rounded-[5px]  font-g-medium text-base line-height-[19px] text-[#A2A2A2] mt-2 focus:outline-blue-500 responsive-container'
           />
           <label className='block text-gray-500 '>Title</label>
           <input

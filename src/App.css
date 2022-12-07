@@ -3,6 +3,10 @@
   min-height: 100vh;
 }
 
+.file-input{
+  display: none;
+}
+
 @media (min-width:1025px) and (max-width:1300px){
   .responsive-container{
     width: 100% !important;
