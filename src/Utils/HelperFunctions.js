@@ -69,7 +69,45 @@ export const addFaqs = async (data, token) => {
         title: data.title,
         body: data.body,
         type: 'FAQ',
+        images: [{ file: data.file }],
       },
+      headers: {
+        authorization: token,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.log(error);
+    toast.error(error.response.data.message);
+  }
+};
+
+// Get CallBacks Data
+
+export const getCallBacksData = async (token) => {
+  try {
+    const response = await Axios({
+      method: 'GET',
+      url: `/callbackRequest`,
+
+      headers: {
+        authorization: token,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.log(error);
+    toast.error(error.response.data.message);
+  }
+};
+
+// Get Reported Bugs Data
+export const getReportedBugsData = async (token) => {
+  try {
+    const response = await Axios({
+      method: 'GET',
+      url: `/reportBugs`,
+
       headers: {
         authorization: token,
       },

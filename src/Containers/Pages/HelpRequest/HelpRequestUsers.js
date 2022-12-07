@@ -33,7 +33,7 @@ const HelpRequestUsers = () => {
   // Add Comment
   const handleAddComment = async (id) => {
     if (!comment) {
-      alert('Empty');
+      toast.error('Please add comment');
     } else {
       let data = await AddComment(id, token);
       toast.success(data?.message);

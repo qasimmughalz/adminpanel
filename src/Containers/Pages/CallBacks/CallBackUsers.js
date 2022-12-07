@@ -1,14 +1,21 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import Spinner from '../../../Components/spinner/Spinner';
-import { dummyUsersData } from '../../../Utils/DummyUsers';
+import { getCallBacksData } from '../../../Utils/HelperFunctions';
 
 const CallBackUsers = () => {
   const [usersData, setUsersData] = useState(null);
+  const token = useSelector((state) => state?.Auth.user.data.token);
+
+  const getData = async () => {
+    let data = await getCallBacksData(token);
+    setUsersData(data.result);
+  };
 
   // Get Dummy Users Data
   useEffect(() => {
-    setUsersData(dummyUsersData);
-  }, [dummyUsersData]);
+    getData();
+  }, []);
 
   if (!usersData) {
     return <Spinner />;
@@ -25,11 +32,11 @@ const CallBackUsers = () => {
               <div className='flex items-center justify-between'>
                 <div className='flex items-center'>
                   <img
-                    src={data.image}
+                    src={data.user.profilePicture}
                     className='bg-gray-100 w-[92px] h-[92px] rounded-full'
                   />
                   <h3 className='text-base ml-4  md:text-xl text-[#000000]  font-g-bold line-height-[23.44px] mb-2'>
-                    {data.firstName} {data.lastName}
+                    {data.user.name}
                   </h3>
                 </div>
                 <div className='flex flex-col items-center md:flex-row'>

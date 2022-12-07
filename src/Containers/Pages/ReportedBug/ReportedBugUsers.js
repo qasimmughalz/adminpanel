@@ -1,14 +1,21 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import Spinner from '../../../Components/spinner/Spinner';
 import { dummyUsersData } from '../../../Utils/DummyUsers';
+import { getReportedBugsData } from '../../../Utils/HelperFunctions';
 
 const ReportedBugUsers = () => {
   const [usersData, setUsersData] = useState(null);
+  const token = useSelector((state) => state?.Auth.user.data.token);
 
-  // Get Dummy Users Data
+  // Get  Users Data
+  const getData = async () => {
+    let data = await getReportedBugsData(token);
+    setUsersData(data.result);
+  };
   useEffect(() => {
-    setUsersData(dummyUsersData);
-  }, [dummyUsersData]);
+    getData();
+  }, []);
 
   if (!usersData) {
     return <Spinner />;
@@ -24,24 +31,28 @@ const ReportedBugUsers = () => {
             >
               <div className='flex flex-col md:flex-row items-center'>
                 <img
-                  src={data.image}
+                  src={data.user.profilePicture}
                   className='bg-gray-100 w-[92px] h-[92px] rounded-full mb-3 lg:mb-0'
                 />
 
                 <div className='flex flex-col ml-4 '>
                   <h3 className='text-base  md:text-xl text-[#000000]  font-g-bold line-height-[23.44px] mb-2'>
-                    {data.firstName} {data.lastName}
+                    {data.user.name}
                   </h3>
                   <p className='text-base line-height-[23.44px] font-g-regular text-customGray'>
-                    {data.userAgent}
+                    {data.message}
                   </p>
                 </div>
               </div>
 
               <div className='flex items-center mt-6'>
-                <button className='bugs-btn '>Coding</button>
-                <button className='bugs-btn mx-2  md:mx-3 '>UI Design</button>
-                <button className='bugs-btn '>HTML</button>
+                {data.tags.length > 0
+                  ? data.tags.map((data, index) => (
+                      <button className='bugs-btn ml-2 md:ml-3 ' key={index}>
+                        {data}
+                      </button>
+                    ))
+                  : ''}
               </div>
             </div>
           ))}
@@ -51,3 +62,8 @@ const ReportedBugUsers = () => {
 };
 
 export default ReportedBugUsers;
+
+{
+  /* <button className='bugs-btn mx-2  md:mx-3 '>UI Design</button>
+<button className='bugs-btn '>HTML</button> */
+}

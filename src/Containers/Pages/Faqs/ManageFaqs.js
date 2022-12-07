@@ -10,6 +10,7 @@ const ManageFaqs = () => {
   const [faqs, setFaqs] = useState({
     title: '',
     body: '',
+    file: '',
   });
   const token = useSelector((state) => state?.Auth.user.data.token);
 
@@ -27,6 +28,7 @@ const ManageFaqs = () => {
   const handleChange = (e) => {
     setFaqs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
+
   // Add Faqs
   const handleAddFaqs = async () => {
     if (faqs.title.trim === '' || faqs.body.trim() === '') {
@@ -38,6 +40,7 @@ const ManageFaqs = () => {
       setFaqs({
         title: '',
         body: '',
+        file: '',
       });
     }
   };
@@ -67,7 +70,16 @@ const ManageFaqs = () => {
           ))}
 
         {/*---Faqs3 */}
-        <div className=' bg-white w-[95%] py-4 mx-auto min-h-[280] flex flex-col justify-center px-4 mb-4 rounded-[10px]  shadow-sm  lg:py-0 lg:w-[1045px] lg:h-[254px] md:m-auto md:mb-4 responsive-inner-container'>
+        <div className=' bg-white w-[95%] py-4 mx-auto min-h-[280] flex flex-col justify-center px-4 mb-4 rounded-[10px]  shadow-sm  lg:py-2 lg:w-[1045px] lg:h-[254px] md:m-auto md:mb-4 responsive-inner-container'>
+          <label className='block text-gray-500 '>Upload Image</label>
+          <input
+            type='file'
+            value={faqs.file}
+            name='file'
+            id='file'
+            onChange={handleChange}
+            className='w-full h-[35px] lg:w-[988px]  rounded-[5px]  font-g-medium text-base line-height-[19px] text-[#A2A2A2] mt-2 focus:outline-blue-500 responsive-container'
+          />
           <label className='block text-gray-500 '>Title</label>
           <input
             type={'text'}
@@ -80,7 +92,7 @@ const ManageFaqs = () => {
           />
           <label className='block text-gray-500 mb-2 mt-2'>Description</label>
           <textarea
-            rows={'4'}
+            rows={'2'}
             type={'text'}
             value={faqs.body}
             onChange={handleChange}
