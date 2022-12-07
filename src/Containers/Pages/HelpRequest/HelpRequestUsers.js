@@ -28,7 +28,6 @@ const HelpRequestUsers = () => {
       [id]: e.target.value,
     });
   };
-  console.log(comment);
 
   // Add Comment
   const handleAddComment = async (id) => {

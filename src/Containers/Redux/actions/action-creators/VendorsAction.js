@@ -6,7 +6,12 @@ import * as ActionTypes from '../action-types/ActionTypes';
 // Get All Vendors
 export const getAllVendors = (token) => async (dispatch) => {
   try {
-    const response = await Axios.get('/admin/vendors', config(token));
+    const response = await Axios({
+      method: 'GET',
+      headers: {
+        authorization: token,
+      },
+    });
     dispatch({
       type: ActionTypes.GET_VENDORS,
       payload: response.data,
