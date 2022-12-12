@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { toast } from 'react-toastify';
 import { useSelector } from 'react-redux';
 import FileImg from '../../../Assets/img/article.png';
+import Axios from '../../../Axios/Axios';
 
 const ManageFaqs = () => {
   const [faqsData, setFaqsData] = useState([]);
@@ -43,6 +44,22 @@ const ManageFaqs = () => {
         body: '',
         file: '',
       });
+    }
+  };
+  const handleUpload = async () => {
+    try {
+      let res = await Axios({
+        method: 'POST',
+        data: {
+          file: faqs.file,
+        },
+        headers: {
+          authorization: token,
+        },
+      });
+      console.log(res.data);
+    } catch (error) {
+      console.log(error);
     }
   };
   return (
@@ -86,6 +103,9 @@ const ManageFaqs = () => {
             onChange={handleChange}
             className='file-input w-full h-[35px] lg:w-[988px]  rounded-[5px]  font-g-medium text-base line-height-[19px] text-[#A2A2A2] mt-2 focus:outline-blue-500 responsive-container'
           />
+          {/* <button className='help-btn' onClick={() => handleUpload()}>
+            Upload Image
+          </button> */}
           <label className='block text-gray-500 '>Title</label>
           <input
             type={'text'}
@@ -105,7 +125,7 @@ const ManageFaqs = () => {
             name='body'
             id='body'
             placeholder='Description'
-            className='w-full py-2 lg:py-4 min-h-[70px] border-2 px-4 rounded-[6px]  border-[#A1A1A1]  lg:w-[988px] lg:h-[122px] responsive-inner-container'
+            className='w-full py-2 lg:py-4 min-h-[70px] border-2 px-4 rounded-[6px]  border-[#A1A1A1]  lg:w-[988px] lg:h-[110px] responsive-inner-container'
           />
         </div>
         <button

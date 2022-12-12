@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 
 const HelpRequestUsers = () => {
   const [usersData, setUsersData] = useState(null);
-  const [comment, setComment] = useState({});
+  const [comment, setComment] = useState([]);
   const token = useSelector((state) => state?.Auth.user.data.token);
 
   const getData = async () => {
@@ -31,9 +31,11 @@ const HelpRequestUsers = () => {
 
   // Add Comment
   const handleAddComment = async (id) => {
-    if (!comment) {
+    if (Object.keys(comment).length === 0) {
       toast.error('Please add comment');
     } else {
+      console.log(id);
+      let message = comment;
       let data = await AddComment(id, token);
       toast.success(data?.message);
       setComment({});
@@ -80,7 +82,7 @@ const HelpRequestUsers = () => {
               />
               <button
                 className='help-btn'
-                onClick={() => handleAddComment(data?._id)}
+                onClick={() => handleAddComment(data?.supportId)}
               >
                 Comment
               </button>
