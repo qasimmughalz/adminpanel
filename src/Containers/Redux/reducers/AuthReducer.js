@@ -14,7 +14,7 @@ const AuthReducer = (state = initialState, action) => {
       };
     }
     case ActionTypes.LOGOUT_USER: {
-      localStorage.removeItem('admin-dashboard');
+      localStorage.clear();
       return {
         user: null,
         isAuthenticated: false,

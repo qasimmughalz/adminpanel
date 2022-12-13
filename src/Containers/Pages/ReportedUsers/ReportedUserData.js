@@ -1,14 +1,22 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import Spinner from '../../../Components/spinner/Spinner';
-import { dummyUsersData } from '../../../Utils/DummyUsers';
+import DummyUser from '../../../Assets/img/user-img.svg';
+import { getAllUsers } from '../../../Utils/HelperFunctions';
 
 const ReportedUsersData = () => {
   const [usersData, setUsersData] = useState(null);
+  const token = useSelector((state) => state?.Auth.user.data.token);
+
+  const getUsersData = async () => {
+    let data = await getAllUsers(token);
+    setUsersData(data.data);
+  };
 
   // Get Dummy Users Data
   useEffect(() => {
-    setUsersData(dummyUsersData);
-  }, [dummyUsersData]);
+    getUsersData();
+  }, []);
 
   if (!usersData) {
     return <Spinner />;
@@ -25,11 +33,15 @@ const ReportedUsersData = () => {
               <div className='flex items-center justify-between'>
                 <div className='flex items-center'>
                   <img
-                    src={data.image}
+                    src={
+                      data.profilePicture.url !== null
+                        ? data.profilePicture.url
+                        : DummyUser
+                    }
                     className='bg-gray-100 w-[92px] h-[92px] rounded-full'
                   />
                   <h3 className='text-base ml-4  md:text-xl text-[#000000]  font-g-bold line-height-[23.44px] mb-2'>
-                    {data.firstName} {data.lastName}
+                    {data.name}
                   </h3>
                 </div>
                 <div className='flex flex-col items-center lg:flex-row'>

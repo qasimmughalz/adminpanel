@@ -34,9 +34,10 @@ const HelpRequestUsers = () => {
     if (Object.keys(comment).length === 0) {
       toast.error('Please add comment');
     } else {
-      console.log(id);
-      let message = comment;
-      let data = await AddComment(id, token);
+      let message = comment[id];
+      console.log(message);
+      let data = await AddComment(id, message, token);
+      getData();
       toast.success(data?.message);
       setComment({});
     }
@@ -51,34 +52,58 @@ const HelpRequestUsers = () => {
         {usersData &&
           usersData.map((data, index) => (
             <div
-              className=' bg-white w-[95%] mx-auto h-[350px] flex flex-col justify-center px-4 mb-4 rounded-[10px]  shadow-sm lg:w-[1045px] lg:h-[304px] md:m-auto md:mb-4 responsive-inner-container'
+              className=' bg-white w-[95%] mx-auto min-h-[350px] flex flex-col justify-center py-2 px-4 mb-4 rounded-[10px]  shadow-sm lg:w-[1045px] lg:min-h-[304px] md:m-auto md:mb-4 responsive-inner-container'
               key={index}
             >
-              <div className='flex items-center'>
+              <div className='flex items-start '>
                 <img
-                  src={DummyUser}
+                  src={data.user.profilePicture.url}
                   className='bg-gray-100 w-[92px] h-[92px] rounded-full'
                 />
 
                 <div className='flex flex-col ml-4 '>
                   <h3 className='text-base  md:text-xl text-[#000000]  font-g-bold line-height-[23.44px] mb-2'>
-                    Lorem Ipsum
+                    {data.user.name}
                   </h3>
                   <p className='text-base line-height-[23.44px] font-g-regular text-customGray'>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s
+                    {data.body}
                   </p>
+                  {/* Comments */}
+                  <div className='my-2 h-[110px]'>
+                    <div className='bg-[#efefef] h-[110px] overflow-y-scroll custom-scroll-bar rounded-md w-full  lg:w-[50%]'>
+                      {data.conversation.length > 0
+                        ? data.conversation.map((data, index) => (
+                            <div
+                              className='py-2 px-4 border-b border-gray-300'
+                              key={index}
+                            >
+                              <div className='flex items-center'>
+                                <img
+                                  src={data.authorDetails.profilePicture.url}
+                                  className='h-[30px] w-[30px] rounded-full'
+                                />
+                                <h6 className='ml-4 text-base font-medium'>
+                                  {data.authorDetails.name}
+                                </h6>
+                              </div>
+                              <p className='text-base line-height-[23.44px] font-g-regular text-customGray'>
+                                {data?.message}
+                              </p>
+                            </div>
+                          ))
+                        : ''}
+                    </div>
+                  </div>
                 </div>
               </div>
 
               <input
-                id={`item${index}`}
+                id={data?.supportId}
                 type='text'
-                value={comment[`item${index}`]}
+                value={comment[data?.supportId]}
                 onChange={handleChange}
                 placeholder='write a reply'
-                className='h-[72px] w-full  text-base my-4 px-6 rounded-[5px] border border-[#A2A2A2] focus:ring-3 focus:ring-blue-300 focus:outline-blue-300 lg:w-[967px] responsive-inner-container'
+                className='min-h-[72px] w-full  text-base my-4 px-6 rounded-[5px] border border-[#A2A2A2] focus:ring-3 focus:ring-blue-300 focus:outline-blue-300 lg:w-[967px] responsive-inner-container'
               />
               <button
                 className='help-btn'

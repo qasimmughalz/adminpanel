@@ -8,6 +8,7 @@ export const getAllVendors = (token) => async (dispatch) => {
   try {
     const response = await Axios({
       method: 'GET',
+      url: '/admin/vendors',
       headers: {
         authorization: token,
       },
