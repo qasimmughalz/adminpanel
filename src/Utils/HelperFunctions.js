@@ -160,3 +160,24 @@ export const getAllUsers = async (token) => {
     toast.error(error.response.data.message);
   }
 };
+
+// Handle Faq Image Upload
+
+export const handleFaqImage = async (formData, token) => {
+  try {
+    const response = await Axios({
+      method: 'POST',
+      url: `/cms/upload-images`,
+      data: formData,
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        authorization: token,
+      },
+    });
+    toast.success(response.data.message);
+    return response.data;
+  } catch (error) {
+    console.log(error);
+    toast.error(error.response.data.message);
+  }
+};

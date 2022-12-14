@@ -1,6 +1,10 @@
 import React, { useEffect } from 'react';
 import TopNav from '../../../Components/TopNav/TopNav';
-import { addFaqs, getFaqs } from '../../../Utils/HelperFunctions';
+import {
+  addFaqs,
+  getFaqs,
+  handleFaqImage,
+} from '../../../Utils/HelperFunctions';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 import { useSelector } from 'react-redux';
@@ -12,8 +16,9 @@ const ManageFaqs = () => {
   const [faqs, setFaqs] = useState({
     title: '',
     body: '',
-    file: '',
   });
+  const [file, setFile] = useState(null);
+  const [uploadedImage, setUploadedImage] = useState(null);
   const token = useSelector((state) => state?.Auth.user.data.token);
 
   // Get Faqs Data
@@ -36,32 +41,37 @@ const ManageFaqs = () => {
     if (faqs.title.trim === '' || faqs.body.trim() === '') {
       toast.error('Please Fill Required Fields');
     } else {
-      let data = await addFaqs(faqs, token);
+      let formData = {
+        title: faqs.title,
+        body: faqs.body,
+        file: uploadedImage,
+      };
+      let data = await addFaqs(formData, token);
       getData();
       toast.success(data.message);
       setFaqs({
         title: '',
         body: '',
-        file: '',
       });
+      setUploadedImage(null);
     }
+  };
+  const handleFile = (e) => {
+    setFile(e.target.files[0]);
   };
   const handleUpload = async () => {
-    try {
-      let res = await Axios({
-        method: 'POST',
-        data: {
-          file: faqs.file,
-        },
-        headers: {
-          authorization: token,
-        },
-      });
-      console.log(res.data);
-    } catch (error) {
-      console.log(error);
+    if (file !== null) {
+      let formData = new FormData();
+      formData.append('file', file);
+      let data = await handleFaqImage(formData, token);
+      console.log(data);
+      if (data) {
+        setUploadedImage(data.url.slice(0, -1));
+        setFile(null);
+      }
     }
   };
+
   return (
     <div className='w-full'>
       <TopNav title={`Manage FAQ's`} />
@@ -93,19 +103,26 @@ const ManageFaqs = () => {
             htmlFor='file'
             className='block text-gray-500 cursor-pointer mb-2 '
           >
-            <img src={FileImg} />
+            <img
+              src={uploadedImage !== null ? uploadedImage : FileImg}
+              className='w-[44.69px] h-[37.81px] flex items-center justify-center'
+            />
           </label>
           <input
             type='file'
-            value={faqs.file}
             name='file'
             id='file'
-            onChange={handleChange}
+            onChange={handleFile}
             className='file-input w-full h-[35px] lg:w-[988px]  rounded-[5px]  font-g-medium text-base line-height-[19px] text-[#A2A2A2] mt-2 focus:outline-blue-500 responsive-container'
           />
-          {/* <button className='help-btn' onClick={() => handleUpload()}>
-            Upload Image
-          </button> */}
+          <button
+            className={`w-[77px] h-[31px] bg-primary text-white rounded-[5px] mt-2 text-[15px] block  font-g-regular line-height-[18px] ${
+              file !== null ? 'block' : 'hidden'
+            }`}
+            onClick={() => handleUpload()}
+          >
+            Upload
+          </button>
           <label className='block text-gray-500 '>Title</label>
           <input
             type={'text'}

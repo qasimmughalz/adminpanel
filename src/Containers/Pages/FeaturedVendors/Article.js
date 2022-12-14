@@ -4,8 +4,6 @@ import { useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import ArticleImg from '../../../Assets/img/article.png';
 import { addBlog, handleBlogImage } from '../../../Utils/HelperFunctions';
-import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 const Article = () => {
   const [article, setArticle] = useState({
