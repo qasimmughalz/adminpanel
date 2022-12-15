@@ -30,17 +30,30 @@ const CallBackUsers = () => {
               key={index}
             >
               <div className='flex items-center justify-between'>
-                <div className='flex items-center'>
+                <div className=' flex flex-col md:flex-row items-center'>
                   <img
                     src={data.user.profilePicture}
                     className='bg-gray-100 w-[92px] h-[92px] rounded-full'
                   />
-                  <h3 className='text-base ml-4  md:text-xl text-[#000000]  font-g-bold line-height-[23.44px] mb-2'>
-                    {data.user.name}
-                  </h3>
+                  <div className='flex flex-col '>
+                    <h3 className='text-base md:ml-4  md:text-xl text-[#000000]  font-g-bold line-height-[23.44px] mb-2'>
+                      {data.user.name}
+                    </h3>
+                    <p className='md:px-4 text-base line-height-[23.44px] font-g-regular text-customGray'>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Quam voluptatem vero aperiam at blanditiis architecto
+                      obcaecati dolore id, atque placeat nemo accusamus
+                      necessitatibus
+                    </p>
+                  </div>
                 </div>
                 <div className='flex flex-col items-center md:flex-row'>
-                  <button className='callback-btn '>Call Back</button>
+                  <a
+                    href='tel:+12345678'
+                    className='callback-btn flex items-center justify-center '
+                  >
+                    12345678
+                  </a>
                 </div>
               </div>
             </div>

@@ -165,17 +165,11 @@ const ProcessedOrder = () => {
                         </div>
                         {active ? (
                           <div className='hidden' id={data}>
-                            <div className='bg-white shadow-lg rounded-md dropdown-animated '>
-                              <div className='flex flex-col items-center p-2 '>
-                                <button className='table-btn btn-completed font-g-regular'>
-                                  Completed
-                                </button>
-                                <button className='table-btn btn-cancel my-2 font-g-regular'>
+                            <div className='bg-white shadow-lg rounded-md  '>
+                              <div className='flex flex-col items-center px-2 '>
+                                <p className=' py-2 text-sm text-red-500 font-g-regular'>
                                   Cancel
-                                </button>
-                                <button className='table-btn btn-pending font-g-regular'>
-                                  Pending
-                                </button>
+                                </p>
                               </div>
                             </div>
                           </div>

@@ -39,6 +39,9 @@ const HelpRequestUsers = () => {
       let data = await AddComment(id, message, token);
       getData();
       toast.success(data?.message);
+      // Clear Input Field Values
+      const fieldValue = document.getElementById(id);
+      fieldValue.value = '';
       setComment({});
     }
   };
@@ -70,28 +73,30 @@ const HelpRequestUsers = () => {
                   </p>
                   {/* Comments */}
                   <div className='my-2 h-[110px]'>
-                    <div className='bg-[#efefef] h-[110px] overflow-y-scroll custom-scroll-bar rounded-md w-full  lg:w-[50%]'>
-                      {data.conversation.length > 0
-                        ? data.conversation.map((data, index) => (
-                            <div
-                              className='py-2 px-4 border-b border-gray-300'
-                              key={index}
-                            >
-                              <div className='flex items-center'>
-                                <img
-                                  src={data.authorDetails.profilePicture.url}
-                                  className='h-[30px] w-[30px] rounded-full'
-                                />
-                                <h6 className='ml-4 text-base font-medium'>
-                                  {data.authorDetails.name}
-                                </h6>
+                    <div className=' h-[110px] overflow-y-scroll custom-scroll-bar  w-full  '>
+                      <div className='bg-[#efefef] mr-1 rounded-md'>
+                        {data.conversation.length > 0
+                          ? data.conversation.map((data, index) => (
+                              <div
+                                className='py-2 px-4 border-b border-gray-300 '
+                                key={index}
+                              >
+                                <div className='flex items-center'>
+                                  <img
+                                    src={data.authorDetails.profilePicture.url}
+                                    className='h-[30px] w-[30px] rounded-full'
+                                  />
+                                  <h6 className='ml-4 text-base font-medium'>
+                                    {data.authorDetails.name}
+                                  </h6>
+                                </div>
+                                <p className='text-base line-height-[23.44px] font-g-regular text-customGray'>
+                                  {data?.message}
+                                </p>
                               </div>
-                              <p className='text-base line-height-[23.44px] font-g-regular text-customGray'>
-                                {data?.message}
-                              </p>
-                            </div>
-                          ))
-                        : ''}
+                            ))
+                          : ''}
+                      </div>
                     </div>
                   </div>
                 </div>
