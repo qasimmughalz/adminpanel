@@ -7,13 +7,14 @@ import './ProcessedOrder.css';
 import { useState } from 'react';
 
 const ProcessedOrder = () => {
-  const [active, setActive] = useState(true);
+  const [active, setActive] = useState(false);
 
-  let data = [1, 2, 3, 4, 5, 6, 7];
+  let data = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   const handleDropdown = (id) => {
     let div = document.getElementById(id);
     div.classList.toggle('dropdown-active');
+    div.classList.add('active');
   };
 
   return (
@@ -89,56 +90,6 @@ const ProcessedOrder = () => {
                 </tr>
               </thead>
               <tbody>
-                <tr className='text-black font-g-regular'>
-                  <td>32</td>
-                  <td>
-                    <div className='flex items-center justify-center  gap-2'>
-                      <div className='user-img'>
-                        <img src={userImg} />
-                      </div>
-                      James Robert
-                    </div>
-                  </td>
-                  <td>Cake</td>
-                  <td>24 items</td>
-                  <td>$10</td>
-                  <td>
-                    <button className='table-btn btn-pending font-g-regular'>
-                      Pending
-                    </button>{' '}
-                  </td>
-                  <td>
-                    {' '}
-                    <div className='trash-circle m-auto text-center flex items-center justify-center'>
-                      <TrashIcon />
-                    </div>
-                  </td>
-                </tr>
-                <tr className='text-black font-g-regular'>
-                  <td>33</td>
-                  <td>
-                    <div className='flex items-center justify-center  gap-2'>
-                      <div className='user-img'>
-                        <img src={userImg} />
-                      </div>
-                      James Robert
-                    </div>
-                  </td>
-                  <td>Cake</td>
-                  <td>24 items</td>
-                  <td>$10</td>
-                  <td>
-                    <button className='table-btn btn-cancel font-g-regular'>
-                      Cancel
-                    </button>{' '}
-                  </td>
-                  <td>
-                    {' '}
-                    <div className='trash-circle text-center m-auto flex items-center justify-center'>
-                      <TrashIcon />
-                    </div>
-                  </td>
-                </tr>
                 {data.map((data, index) => {
                   return (
                     <tr className='text-black font-g-regular' key={index}>
@@ -159,23 +110,26 @@ const ProcessedOrder = () => {
                           Completed
                         </button>{' '}
                       </td>
-                      <td>
-                        <div className='trash-circle text-center m-auto flex items-center justify-center'>
-                          <BsThreeDots onClick={() => handleDropdown(data)} />
-                        </div>
-                        {active ? (
-                          <div className='hidden' id={data}>
-                            <div className='bg-white shadow-lg rounded-md  '>
-                              <div className='flex flex-col items-center px-2 '>
-                                <p className=' py-2 text-sm text-red-500 font-g-regular'>
-                                  Cancel
-                                </p>
-                              </div>
+                      <td className='relative group'>
+                        <button
+                          className='trash-circle  text-center m-auto flex items-center justify-center'
+                          onClick={() => handleDropdown(data)}
+                        >
+                          <BsThreeDots />
+                        </button>
+
+                        <div
+                          className='  absolute w-20 hidden group-hover:block bottom--2 z-50 right-0 lg:right-6 dropdown-animated'
+                          id={data}
+                        >
+                          <div className='bg-white  shadow-lg rounded-sm  '>
+                            <div className='flex flex-col items-center px-2 '>
+                              <p className=' py-2 text-cancel text-sm  font-g-regular'>
+                                cancel
+                              </p>
                             </div>
                           </div>
-                        ) : (
-                          ''
-                        )}
+                        </div>
                       </td>
                     </tr>
                   );

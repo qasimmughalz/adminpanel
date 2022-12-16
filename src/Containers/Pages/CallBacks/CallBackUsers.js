@@ -26,11 +26,11 @@ const CallBackUsers = () => {
         {usersData &&
           usersData.map((data, index) => (
             <div
-              className='bg-white w-[95%] mx-auto min-h-[150px] flex flex-col justify-center px-4 mb-4 rounded-[10px]  shadow-sm lg:w-[1045px] lg:h-[134px] md:m-auto md:mb-4 responsive-inner-container'
+              className='bg-white py-2 w-[95%] mx-auto min-h-[150px] flex flex-col justify-center px-4 mb-4 rounded-[10px]  shadow-sm lg:w-[1045px] lg:h-[134px] md:m-auto md:mb-4 responsive-inner-container'
               key={index}
             >
               <div className='flex items-center justify-between'>
-                <div className=' flex flex-col md:flex-row items-center'>
+                <div className=' flex flex-col md:flex-row md:items-center'>
                   <img
                     src={data.user.profilePicture}
                     className='bg-gray-100 w-[92px] h-[92px] rounded-full'
