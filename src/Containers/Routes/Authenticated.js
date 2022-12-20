@@ -10,6 +10,7 @@ import ReportedUsers from '../Pages/ReportedUsers/ReportedUsers';
 import RequestPosting from '../Pages/RequestPosting/RequestPosting';
 import CallBacks from '../Pages/CallBacks/CallBacks';
 import ManageFaqs from '../Pages/Faqs/ManageFaqs';
+import Profile from '../Pages/Profile/Profile';
 
 const Authenticated = () => {
   return (
@@ -26,6 +27,7 @@ const Authenticated = () => {
           <Route path='/reportedBugs' element={<ReportedBugs />} />
           <Route path='/callBacks' element={<CallBacks />} />
           <Route path='/manageFaqs' element={<ManageFaqs />} />
+          <Route path='/profile' element={<Profile />} />
           <Route path='*' element={<Dashboard />} />
         </Routes>
       </Layout>

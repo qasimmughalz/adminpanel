@@ -84,7 +84,7 @@ const HelpRequestUsers = () => {
                                 <div className='flex items-center'>
                                   <img
                                     src={data.authorDetails.profilePicture.url}
-                                    className='h-[30px] w-[30px] rounded-full'
+                                    className='h-[30px] w-[30px] rounded-full '
                                   />
                                   <h6 className='ml-4 text-base font-medium'>
                                     {data.authorDetails.name}

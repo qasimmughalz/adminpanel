@@ -7,6 +7,7 @@
   display: none;
 }
 
+
 @media (min-width:1025px) and (max-width:1300px){
   .responsive-container{
     width: 100% !important;
@@ -26,4 +27,35 @@
   }
 }
 
+@media (min-width:1024px){
+  .profile-bg{
+    width: 1142px;
+    height: 225px;
+  }
+}
+@media (min-width:1350px){
+  .profile-bg{
+    width: 100%;
+    height: 225px;
+  }
+}
+
+@media (min-width:1024px) and (max-width:1350px){
+  .profile-field-container{
+    margin-left: 0 !important;
+    width: 100%;
+  }
+  .about-field{
+    width: 100% !important;
+  }
+  .profile-field{
+    width: 360px;
+  }
+}
+@media (min-width:1200px) and (max-width:1350px){
+
+  .profile-field{
+    width: 400px;
+  }
+}
 

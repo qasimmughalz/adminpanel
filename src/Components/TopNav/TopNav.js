@@ -5,15 +5,27 @@ import { useDispatch } from 'react-redux';
 import { logoutUser } from '../../Containers/Redux/actions/action-creators/AuthActions';
 import Sidebar from '../Sidebar/Sidebar';
 import logo from '../../Assets/img/logo.svg';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import logo2 from '../../Assets/img/logo2.svg';
-
+import { useEffect } from 'react';
+import UserCircle from '../../Assets/img/user-circle.png';
+import Password from '../../Assets/img/password.png';
+import Logout from '../../Assets/img/logout.png';
 const TopNav = ({ title }) => {
   const dispatch = useDispatch();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const [margin, setMargin] = useState(true);
   const [mobileSideBar, setMobileSidebar] = useState(false);
 
+  useEffect(() => {
+    if (location.pathname === '/profile') {
+      setMargin(false);
+    }
+  }, [location]);
+
   return (
-    <div className='bg-white mb-12  relative '>
+    <div className={`bg-white ${margin ? 'mb-12' : 'mb-0'}  relative`}>
       <div className='flex justify-between top-nav items-center m-auto px-8 md:px-0'>
         <div>
           <h2 className='font-g-bold'>{title}</h2>
@@ -63,12 +75,38 @@ const TopNav = ({ title }) => {
             <li className='user-box dropdown'>
               <img src={userImg} />
               <div className='dropdown-content'>
-                <p
-                  className='font-g- cursor-pointer'
+                <div
+                  className='flex items-center border-b-2 border-b-[#BFBFBF] py-5 px-4'
+                  onClick={() => navigate('/profile')}
+                >
+                  <img
+                    src={UserCircle}
+                    alt='user'
+                    className='h-[36px] w-[36px]'
+                  />
+                  <p className='font-regular text-[18px] ml-2 line-height-[30px] cursor-pointer'>
+                    Profile
+                  </p>
+                </div>
+                <div className='flex items-center border-b-2 border-b-[#BFBFBF] py-5 px-4'>
+                  <img
+                    src={Password}
+                    alt='user'
+                    className='h-[36px] w-[36px]'
+                  />
+                  <p className='font-regular text-[18px] ml-2 line-height-[30px] cursor-pointer'>
+                    Change Password
+                  </p>
+                </div>
+                <div
+                  className='flex items-center  py-5 px-4'
                   onClick={() => dispatch(logoutUser())}
                 >
-                  Logout
-                </p>
+                  <img src={Logout} alt='user' className='h-[36px] w-[36px]' />
+                  <p className='font-regular text-[18px] ml-2 line-height-[30px] cursor-pointer'>
+                    Logout
+                  </p>
+                </div>
               </div>
             </li>
           </ul>
