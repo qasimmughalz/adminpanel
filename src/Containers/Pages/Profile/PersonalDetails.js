@@ -1,6 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const PersonalDetails = () => {
+  const [profileValues, setProfileValues] = useState({
+    fName: 'Leonard',
+    lName: 'Compbell',
+    gender: 'Male',
+    date: '2022-07-22',
+    email: 'abc@xyz.com',
+    phone: '+01 (02) 3456-789',
+    address: '225 Cherry Streets #24, New York',
+    whatsapp: '+01 (02) 3456-789',
+    about:
+      'Curabitur vestibulum arcu turpis,quis egestas lacus fringilla sit amet.Duis posuere enim vitae urna placerat placerat. Aenean  tincidunt magna rutrum urna euismod dapibus. Maecenas vel augue auctor, dictum orci non, fermentum diam. In vehicula vestibulum ligula nec ultricies. Curabitur aliquam nibh nibh, a fermentum massa pretium semper. Aenean et massa fermentum, ullamcorper urna at, auctor odio. In tincidunt placerat rutrum. Donec volutpat hendrerit maximus.',
+  });
+
+  const handleChange = (e) => {
+    setProfileValues({
+      ...profileValues,
+      [e.target.name]: e.target.value,
+    });
+  };
   return (
     <div className='bg-white px-8 py-4 mb-8 mt-[125px] lg:mt-[160px] lg:w-[921px] lg:h-[870px] rounded-[5px] lg:ml-[165px] profile-field-container'>
       <div className='container'>
@@ -13,41 +32,51 @@ const PersonalDetails = () => {
             <p className='text-[18px]  mb-1 font-g-medium text-[#00000] line-height-[21.09px'>
               First Name
             </p>
-            <div className='profile-field w-full h-[40px] border border-[#BFBFBF] lg:w-[407px] lg:h-[56px] rounded-[3px] flex items-center '>
-              <p className='text-base  tex-[#858585] line-height-[19px] font-g-regular px-4'>
-                Leonard
-              </p>
-            </div>
+            <input
+              className='profile-field text-base  tex-[#858585] line-height-[19px] px-4 font-g-regular w-full h-[40px] border border-[#BFBFBF] lg:w-[407px] lg:h-[56px] rounded-[3px] flex items-center '
+              type='text'
+              name='fName'
+              value={profileValues.fName}
+              onChange={handleChange}
+            />
           </div>
           <div className='mt-3'>
             <p className='text-[18px] mb-1 font-g-medium text-[#00000] line-height-[21.09px'>
               Last Name
             </p>
-            <div className='profile-field w-full h-[40px] border border-[#BFBFBF] lg:w-[407px] lg:h-[56px] rounded-[3px] flex items-center '>
-              <p className='text-base tex-[#858585] line-height-[19px] font-g-regular px-4'>
-                Campbell
-              </p>
-            </div>
+            <input
+              className='profile-field text-base  tex-[#858585] line-height-[19px] px-4 font-g-regular w-full h-[40px] border border-[#BFBFBF] lg:w-[407px] lg:h-[56px] rounded-[3px] flex items-center '
+              type='text'
+              name='lName'
+              value={profileValues.lName}
+              onChange={handleChange}
+            />
           </div>
           <div className='mt-4'>
             <p className='text-[18px] mb-1 font-g-medium text-[#00000] line-height-[21.09px'>
               Gender
             </p>
-            <div className='profile-field w-full h-[40px] border border-[#BFBFBF] lg:w-[407px] lg:h-[56px] rounded-[3px] flex items-center '>
-              <p className='text-base tex-[#858585] line-height-[19px] font-g-regular px-4'>
-                Male
-              </p>
-            </div>
+            <select
+              className='profile-field text-base  tex-[#858585] line-height-[19px] px-4 font-g-regular w-full h-[40px] border border-[#BFBFBF] lg:w-[407px] lg:h-[56px] rounded-[3px] flex items-center '
+              name='gender'
+              value={profileValues.gender}
+              onChange={handleChange}
+            >
+              <option>Male</option>
+              <option>Female</option>
+            </select>
           </div>
           <div className='mt-4'>
             <p className='text-[18px] mb-1 font-g-medium text-[#00000] line-height-[21.09px'>
               Date
             </p>
-            <div className='profile-field w-full h-[40px] border border-[#BFBFBF] lg:w-[407px] lg:h-[56px] rounded-[3px] flex items-center '>
-              <p className='text-base tex-[#858585] line-height-[19px] font-g-regular px-4'>
-                March 23, 1995
-              </p>
-            </div>
+            <input
+              className='profile-field text-base  tex-[#858585] line-height-[19px] px-4 font-g-regular w-full h-[40px] border border-[#BFBFBF] lg:w-[407px] lg:h-[56px] rounded-[3px] flex items-center '
+              type='date'
+              name='date'
+              value={profileValues.date}
+              onChange={handleChange}
+            />
           </div>
         </div>
       </div>
@@ -61,41 +90,49 @@ const PersonalDetails = () => {
             <p className='text-[18px] mb-1 font-g-medium text-[#00000] line-height-[21.09px'>
               Email
             </p>
-            <div className='profile-field w-full h-[40px] border border-[#BFBFBF] lg:w-[407px] lg:h-[56px] rounded-[3px] flex items-center '>
-              <p className='text-base tex-[#858585] line-height-[19px] font-g-regular px-4'>
-                abc@xyz.com
-              </p>
-            </div>
+            <input
+              className='profile-field text-base  tex-[#858585] line-height-[19px] px-4 font-g-regular w-full h-[40px] border border-[#BFBFBF] lg:w-[407px] lg:h-[56px] rounded-[3px] flex items-center '
+              type='email'
+              name='email'
+              value={profileValues.email}
+              onChange={handleChange}
+            />
           </div>
           <div className='mt-3'>
             <p className='text-[18px] mb-1 font-g-medium text-[#00000] line-height-[21.09px'>
               Phone
             </p>
-            <div className='profile-field w-full h-[40px] border border-[#BFBFBF] lg:w-[407px] lg:h-[56px] rounded-[3px] flex items-center '>
-              <p className='text-base tex-[#858585] line-height-[19px] font-g-regular px-4'>
-                +01 (02) 3456-789
-              </p>
-            </div>
+            <input
+              className='profile-field text-base  tex-[#858585] line-height-[19px] px-4 font-g-regular w-full h-[40px] border border-[#BFBFBF] lg:w-[407px] lg:h-[56px] rounded-[3px] flex items-center '
+              type='tel'
+              name='phone'
+              value={profileValues.phone}
+              onChange={handleChange}
+            />
           </div>
           <div className='mt-4'>
             <p className='text-[18px] mb-1 font-g-medium text-[#00000] line-height-[21.09px'>
               Address
             </p>
-            <div className='profile-field w-full h-[40px] border border-[#BFBFBF] lg:w-[407px] lg:h-[56px] rounded-[3px] flex items-center '>
-              <p className='text-base tex-[#858585] line-height-[19px] font-g-regular px-4'>
-                225 Cherry Streets #24, New York
-              </p>
-            </div>
+            <input
+              className='profile-field text-base  tex-[#858585] line-height-[19px] px-4 font-g-regular w-full h-[40px] border border-[#BFBFBF] lg:w-[407px] lg:h-[56px] rounded-[3px] flex items-center '
+              type='text'
+              name='address'
+              value={profileValues.address}
+              onChange={handleChange}
+            />
           </div>
           <div className='mt-4'>
             <p className='text-[18px] mb-1 font-g-medium text-[#00000] line-height-[21.09px'>
               Whatsapp
             </p>
-            <div className='profile-field w-full h-[40px] border border-[#BFBFBF] lg:w-[407px] lg:h-[56px] rounded-[3px] flex items-center '>
-              <p className='text-base tex-[#858585] line-height-[19px] font-g-regular px-4'>
-                +01 (02) 3456-789
-              </p>
-            </div>
+            <input
+              className='profile-field text-base  tex-[#858585] line-height-[19px] px-4 font-g-regular w-full h-[40px] border border-[#BFBFBF] lg:w-[407px] lg:h-[56px] rounded-[3px] flex items-center '
+              type='tel'
+              name='whatsapp'
+              value={profileValues.whatsapp}
+              onChange={handleChange}
+            />
           </div>
         </div>
       </div>
@@ -103,18 +140,14 @@ const PersonalDetails = () => {
         <p className='text-[18px] mb-1 font-g-bold text-[#00000] line-height-[21.09px'>
           About
         </p>
-        <div className='about-field w-full h-[auto] border border-[#BFBFBF] lg:w-[840px] lg:h-[225px] rounded-[3px] flex items-center '>
-          <p className='about-field text-base lg:text-[18px] lg:w-[793px] lg:h-[177px] tex-[#858585] line-height-[30px] font-g-regular px-4 py-2 lg-py-0'>
-            Curabitur vestibulum arcu turpis, quis egestas lacus fringilla sit
-            amet. Duis posuere enim vitae urna placerat placerat. Aenean
-            tincidunt magna rutrum urna euismod dapibus. Maecenas vel augue
-            auctor, dictum orci non, fermentum diam. In vehicula vestibulum
-            ligula nec ultricies. Curabitur aliquam nibh nibh, a fermentum massa
-            pretium semper. Aenean et massa fermentum, ullamcorper urna at,
-            auctor odio. In tincidunt placerat rutrum. Donec volutpat hendrerit
-            maximus.
-          </p>
-        </div>
+        <textarea
+          className='about-field  w-full h-[auto] border border-[#BFBFBF] lg:w-[840px] lg:h-[225px] rounded-[3px] flex items-center text-base lg:text-[18px]  tex-[#858585] line-height-[30px] font-g-regular px-4 py-2 lg-py-0'
+          type='text'
+          rows='3'
+          name='about'
+          value={profileValues.about}
+          onChange={handleChange}
+        />
       </div>
     </div>
   );

@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import Spinner from '../../../Components/spinner/Spinner';
 import { dummyUsersData } from '../../../Utils/DummyUsers';
+import userImg from '../../../Assets/img/user.svg';
 
 const Vendors = () => {
-  const [usersData, setUsersData] = useState(null);
+  const vendorsData = useSelector((state) => state?.admin.vendors);
+  console.log(vendorsData);
 
-  // Get Dummy Users Data
-  useEffect(() => {
-    setUsersData(dummyUsersData);
-  }, [dummyUsersData]);
-
-  if (!usersData) {
+  if (!vendorsData) {
     return <Spinner />;
   }
   return (
@@ -19,8 +17,8 @@ const Vendors = () => {
         Vendors
       </p>
       <div className='w-[100%] h-[650px] lg:w-[520px] overflow-y-scroll custom-scroll-bar responsive-container'>
-        {usersData &&
-          usersData.map((data, index) => (
+        {vendorsData.result.length > 0 &&
+          vendorsData.result.map((data, index) => (
             <div
               className='bg-[#F2F2F2] w-[95%] mx-auto min-h-[150px] flex flex-col justify-center px-4 mb-4 rounded-[10px]  shadow-sm lg:w-[481px] lg:h-[89px] md:m-auto md:mb-4'
               key={index}
@@ -28,11 +26,11 @@ const Vendors = () => {
               <div className='flex items-center justify-between'>
                 <div className='flex items-center'>
                   <img
-                    src={data.image}
+                    src={userImg}
                     className='bg-white w-[60px] h-[60px] rounded-full'
                   />
                   <h3 className='text-base ml-4   text-[#000000]  font-g-bold line-height-[18.75px] '>
-                    {data.firstName} {data.lastName}
+                    {data.businessName}
                   </h3>
                 </div>
                 <div className='flex flex-col items-center md:flex-row'>
