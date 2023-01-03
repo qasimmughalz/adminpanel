@@ -11,6 +11,8 @@ import RequestPosting from '../Pages/RequestPosting/RequestPosting';
 import CallBacks from '../Pages/CallBacks/CallBacks';
 import ManageFaqs from '../Pages/Faqs/ManageFaqs';
 import Profile from '../Pages/Profile/Profile';
+import ArticlesList from '../Pages/ArticlesList/ArticlesList';
+import ArticleDetails from '../Pages/ArticlesList/ArticleDetails';
 
 const Authenticated = () => {
   return (
@@ -28,6 +30,8 @@ const Authenticated = () => {
           <Route path='/callBacks' element={<CallBacks />} />
           <Route path='/manageFaqs' element={<ManageFaqs />} />
           <Route path='/profile' element={<Profile />} />
+          <Route path='/articles' element={<ArticlesList />} />
+          <Route path='/articles/:id' element={<ArticleDetails />} />
           <Route path='*' element={<Dashboard />} />
         </Routes>
       </Layout>

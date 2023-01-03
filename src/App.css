@@ -6,7 +6,17 @@
 .file-input{
   display: none;
 }
-
+.set-filter{
+  color: #12C4E0;
+  font-family: Gilroy-Bold;
+}
+.search-input-box{
+  width: 90%;
+  height: 46px;
+  background: #FFFFFF;
+  border: 0.5px solid #12C4E0;
+  border-radius: 11px;
+}
 
 @media (min-width:1025px) and (max-width:1300px){
   .responsive-container{
@@ -59,3 +69,8 @@
   }
 }
 
+@media (min-width:1250px){
+  .articles-text{
+    width: 718px;
+  }
+}
