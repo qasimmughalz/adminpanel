@@ -39,9 +39,10 @@ const ProcessedOrder = () => {
   //Function  Handle To Search
   const handleSearch = (e) => {
     if (search !== '') {
-      let searedData = data.filter(
-        (data) => data.name.toLowerCase() === search
+      let searedData = data.filter((data) =>
+        data.name.toLowerCase().includes(search.toLowerCase())
       );
+      console.log(searedData);
       setSearchedData(searedData);
 
       setSearch('');
@@ -185,7 +186,7 @@ const ProcessedOrder = () => {
                               <div className='user-img'>
                                 <img src={userImg} />
                               </div>
-                              James Robert
+                              {data.name}
                             </div>
                           </td>
                           <td>Cake</td>
@@ -249,7 +250,7 @@ const ProcessedOrder = () => {
                             <div className='user-img'>
                               <img src={userImg} />
                             </div>
-                            James Robert
+                            {data.name}
                           </div>
                         </td>
                         <td>Cake</td>
@@ -285,7 +286,7 @@ const ProcessedOrder = () => {
               </table>
             ) : (
               <p className='text-center flex items-center justify-center w-full'>
-                No Data Found
+                No Searched Data Found
               </p>
             )}
           </div>

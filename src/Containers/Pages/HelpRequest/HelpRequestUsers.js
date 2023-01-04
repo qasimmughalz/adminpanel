@@ -5,9 +5,12 @@ import { AddComment, getHelpRequest } from '../../../Utils/HelperFunctions';
 import DummyUser from '../../../Assets/img/user-img.svg';
 import { useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
+import SearchInput from '../../../Components/SearchInput/SearchInput';
 
 const HelpRequestUsers = () => {
   const [usersData, setUsersData] = useState(null);
+  const [searchText, setSearchText] = useState('');
+  const [filterUsers, setFilterUsers] = useState(null);
   const [comment, setComment] = useState([]);
   const token = useSelector((state) => state?.Auth.user.data.token);
 
@@ -20,6 +23,12 @@ const HelpRequestUsers = () => {
   useEffect(() => {
     getData();
   }, []);
+  useEffect(() => {
+    const filter = usersData?.filter((data) =>
+      data.user.name.toLowerCase().includes(searchText)
+    );
+    setFilterUsers(filter);
+  }, [searchText]);
 
   // Handle On Change
   const handleChange = (e) => {
@@ -50,10 +59,86 @@ const HelpRequestUsers = () => {
     return <Spinner />;
   }
   return (
-    <div className=' max-h-[75vh]'>
+    <div className=' max-h-[85vh]'>
+      <SearchInput
+        setSearchText={setSearchText}
+        placeholder='Search Users by Name'
+      />
       <div className='container mx-auto w-[95%] h-[75vh]  overflow-y-scroll custom-scroll-bar lg:w-[1070px] responsive-container'>
-        {usersData &&
-          usersData.map((data, index) => (
+        {filterUsers == null ? (
+          usersData.length > 0 ? (
+            usersData.map((data, index) => (
+              <div
+                className=' bg-white w-[95%] mx-auto min-h-[350px] flex flex-col justify-center py-2 px-4 mb-4 rounded-[10px]  shadow-sm lg:w-[1045px] lg:min-h-[304px] md:m-auto md:mb-4 responsive-inner-container'
+                key={index}
+              >
+                <div className='flex items-start '>
+                  <img
+                    src={data.user.profilePicture.url}
+                    className='bg-gray-100 w-[92px] h-[92px] rounded-full'
+                  />
+
+                  <div className='flex flex-col ml-4 '>
+                    <h3 className='text-base  md:text-xl text-[#000000]  font-g-bold line-height-[23.44px] mb-2'>
+                      {data.user.name}
+                    </h3>
+                    <p className='text-base line-height-[23.44px] font-g-regular text-customGray'>
+                      {data.body}
+                    </p>
+                    {/* Comments */}
+                    <div className='my-2 h-[110px]'>
+                      <div className=' h-[110px] overflow-y-scroll custom-scroll-bar  w-full  '>
+                        <div className='bg-[#efefef] mr-1 rounded-md'>
+                          {data.conversation.length > 0
+                            ? data.conversation.map((data, index) => (
+                                <div
+                                  className='py-2 px-4 border-b border-gray-300 '
+                                  key={index}
+                                >
+                                  <div className='flex items-center'>
+                                    <img
+                                      src={
+                                        data.authorDetails.profilePicture.url
+                                      }
+                                      className='h-[30px] w-[30px] rounded-full '
+                                    />
+                                    <h6 className='ml-4 text-base font-medium'>
+                                      {data.authorDetails.name}
+                                    </h6>
+                                  </div>
+                                  <p className='text-base line-height-[23.44px] font-g-regular text-customGray'>
+                                    {data?.message}
+                                  </p>
+                                </div>
+                              ))
+                            : ''}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <input
+                  id={data?.supportId}
+                  type='text'
+                  value={comment[data?.supportId]}
+                  onChange={handleChange}
+                  placeholder='write a reply'
+                  className='min-h-[72px] w-full  text-base my-4 px-6 rounded-[5px] border border-[#A2A2A2] focus:ring-3 focus:ring-blue-300 focus:outline-blue-300 lg:w-[967px] responsive-inner-container'
+                />
+                <button
+                  className='help-btn'
+                  onClick={() => handleAddComment(data?.supportId)}
+                >
+                  Comment
+                </button>
+              </div>
+            ))
+          ) : (
+            <p className='text-center'>No Data Found </p>
+          )
+        ) : filterUsers.length > 0 ? (
+          filterUsers.map((data, index) => (
             <div
               className=' bg-white w-[95%] mx-auto min-h-[350px] flex flex-col justify-center py-2 px-4 mb-4 rounded-[10px]  shadow-sm lg:w-[1045px] lg:min-h-[304px] md:m-auto md:mb-4 responsive-inner-container'
               key={index}
@@ -117,7 +202,10 @@ const HelpRequestUsers = () => {
                 Comment
               </button>
             </div>
-          ))}
+          ))
+        ) : (
+          <p className='text-center'>No Searched Data Found </p>
+        )}
       </div>
     </div>
   );
