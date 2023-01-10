@@ -14,12 +14,12 @@ const RequestUsers = () => {
   useEffect(() => {
     setUsersData(dummyUsersData);
   }, [dummyUsersData]);
-  useEffect(() => {
-    const filter = usersData?.filter((data) =>
-      data.firstName.toLowerCase().includes(searchText)
-    );
-    setFilterUsers(filter);
-  }, [searchText]);
+  // useEffect(() => {
+  //   const filter = usersData?.filter((data) =>
+  //     data.firstName.toLowerCase().includes(searchText)
+  //   );
+  //   setFilterUsers(filter);
+  // }, [searchText]);
 
   if (!usersData) {
     return <Spinner />;
@@ -27,10 +27,10 @@ const RequestUsers = () => {
 
   return (
     <div className=' max-h-[85vh] w-full'>
-      <SearchInput
+      {/* <SearchInput
         setSearchText={setSearchText}
         placeholder='Search Users by Name'
-      />
+      /> */}
       <div className='container mx-auto w-[95%] h-[75vh]  overflow-y-scroll custom-scroll-bar  lg:w-[1070px] responsive-container'>
         <p className='text-base p-4 font-g-bold text-[#000000] line-height-[28.13px] md:text-[24px]'>
           List Of Request

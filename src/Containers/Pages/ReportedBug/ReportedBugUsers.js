@@ -8,7 +8,7 @@ import SearchInput from '../../../Components/SearchInput/SearchInput';
 const ReportedBugUsers = () => {
   const [usersData, setUsersData] = useState(null);
   const [searchText, setSearchText] = useState('');
-  const [filterUsers, setFilterUsers] = useState('');
+  const [filterUsers, setFilterUsers] = useState(null);
   const token = useSelector((state) => state?.Auth.user.data.token);
 
   // Get  Users Data
@@ -19,22 +19,22 @@ const ReportedBugUsers = () => {
   useEffect(() => {
     getData();
   }, []);
-  useEffect(() => {
-    const filter = usersData?.filter((data) =>
-      data.user.name.toLowerCase().includes(searchText)
-    );
-    setFilterUsers(filter);
-  }, [searchText]);
+  // useEffect(() => {
+  //   const filter = usersData?.filter((data) =>
+  //     data.user.name.toLowerCase().includes(searchText)
+  //   );
+  //   setFilterUsers(filter);
+  // }, [searchText]);
 
   if (!usersData) {
     return <Spinner />;
   }
   return (
     <div className=' max-h-[85vh]'>
-      <SearchInput
+      {/* <SearchInput
         placeholder='Search users by name'
         setSearchText={setSearchText}
-      />
+      /> */}
       <div className='container mx-auto w-[95%] h-[75vh]  overflow-y-scroll custom-scroll-bar lg:w-[1070px] responsive-container'>
         {filterUsers == null ? (
           usersData.length > 0 ? (

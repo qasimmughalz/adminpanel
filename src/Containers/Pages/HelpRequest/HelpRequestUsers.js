@@ -23,12 +23,12 @@ const HelpRequestUsers = () => {
   useEffect(() => {
     getData();
   }, []);
-  useEffect(() => {
-    const filter = usersData?.filter((data) =>
-      data.user.name.toLowerCase().includes(searchText)
-    );
-    setFilterUsers(filter);
-  }, [searchText]);
+  // useEffect(() => {
+  //   const filter = usersData?.filter((data) =>
+  //     data.user.name.toLowerCase().includes(searchText)
+  //   );
+  //   setFilterUsers(filter);
+  // }, [searchText]);
 
   // Handle On Change
   const handleChange = (e) => {
@@ -60,10 +60,10 @@ const HelpRequestUsers = () => {
   }
   return (
     <div className=' max-h-[85vh]'>
-      <SearchInput
+      {/* <SearchInput
         setSearchText={setSearchText}
         placeholder='Search Users by Name'
-      />
+      /> */}
       <div className='container mx-auto w-[95%] h-[75vh]  overflow-y-scroll custom-scroll-bar lg:w-[1070px] responsive-container'>
         {filterUsers == null ? (
           usersData.length > 0 ? (

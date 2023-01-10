@@ -34,16 +34,16 @@ const ManageFaqs = () => {
   useEffect(() => {
     getData();
   }, []);
-  useEffect(() => {
-    if (searchText.trim() !== '') {
-      const filter = faqsData?.filter((data) =>
-        data.title.toLowerCase().includes(searchText)
-      );
-      setFilterFaqs(filter);
-    } else {
-      setFilterFaqs(null);
-    }
-  }, [searchText]);
+  // useEffect(() => {
+  //   if (searchText.trim() !== '') {
+  //     const filter = faqsData?.filter((data) =>
+  //       data.title.toLowerCase().includes(searchText)
+  //     );
+  //     setFilterFaqs(filter);
+  //   } else {
+  //     setFilterFaqs(null);
+  //   }
+  // }, [searchText]);
 
   // Handle Change
   const handleChange = (e) => {
@@ -90,10 +90,10 @@ const ManageFaqs = () => {
     <div className='w-full'>
       <TopNav title={`Manage FAQ's`} />
       <div className='responsive-container'>
-        <SearchInput
+        {/* <SearchInput
           setSearchText={setSearchText}
           placeholder='Search Faqs by Title'
-        />
+        /> */}
         {/*---Faqs Data */}
         {filterFaqs == null ? (
           faqsData.length > 0 ? (

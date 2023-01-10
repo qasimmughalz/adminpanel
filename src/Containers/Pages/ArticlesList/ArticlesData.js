@@ -17,23 +17,23 @@ const ArticlesData = () => {
     setUsersData(dummyArticlesData);
   }, []);
 
-  useEffect(() => {
-    if (searchText.trim() !== '') {
-      const filter = usersData?.filter((data) =>
-        data.title.toLowerCase().includes(searchText)
-      );
-      console.log(filter);
-      setFilterArticles(filter);
-    } else {
-      setFilterArticles(null);
-    }
-  }, [searchText]);
+  // useEffect(() => {
+  //   if (searchText.trim() !== '') {
+  //     const filter = usersData?.filter((data) =>
+  //       data.title.toLowerCase().includes(searchText)
+  //     );
+  //     console.log(filter);
+  //     setFilterArticles(filter);
+  //   } else {
+  //     setFilterArticles(null);
+  //   }
+  // }, [searchText]);
   return (
     <div className='max-h-[85vh] '>
-      <SearchInput
+      {/* <SearchInput
         setSearchText={setSearchText}
         placeholder='Search Article by Name'
-      />
+      /> */}
       <div className='container mx-auto w-[95%] h-[75vh]  overflow-y-scroll custom-scroll-bar lg:w-[1070px] responsive-container'>
         {filterArticles == null ? (
           usersData.length > 0 ? (
