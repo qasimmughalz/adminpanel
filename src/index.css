@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 @layer components {
     .help-btn {
       @apply w-[123px] h-[48px] rounded-[5px] text-white  bg-primary font-g-regular  text-[18px]  text-center
@@ -20,6 +22,7 @@
     }
     
   }
+
 
 @font-face {
     font-family: Gilroy-Bold;
