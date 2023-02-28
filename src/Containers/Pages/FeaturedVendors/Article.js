@@ -23,7 +23,7 @@ const Article = () => {
   const handleSubmit = async () => {
     if (
       article.title.trim === "" ||
-      description.trim() === "" ||
+      description === "Add Description" ||
       uploadedImage == null
     ) {
       toast.error("Please Fill Required Fields");

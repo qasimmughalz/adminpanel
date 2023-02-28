@@ -10,7 +10,11 @@ export default function EditorModal({
   const [value, setValue] = useState("");
 
   const handleClick = () => {
-    setDescription(value);
+    if (value.trim() == "") {
+      setDescription("Add Description");
+    } else {
+      setDescription(value);
+    }
     setShowModal(false);
   };
 
